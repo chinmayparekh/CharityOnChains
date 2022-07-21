@@ -4,7 +4,6 @@ import ngo from "./images/ngo.png";
 import donors from "./images/donor.png";
 import help from "./images/help.png";
 import store from "./images/store.png";
-import { useNavigate } from "react-router-dom";
 
 const Layout = (props) => {
   const leftDiv = {
@@ -34,11 +33,7 @@ const Layout = (props) => {
     imageDiv = <img src={store} alt=""></img>;
   }
 
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `connect`;
-    navigate(path);
-  };
+ 
   return (
     <>
       <section className=" mt-150 mb-75">
@@ -51,8 +46,8 @@ const Layout = (props) => {
               <p className="information">{props.content}</p>
             </div>
             <div className="buttons">
-              <button onClick={routeChange} className="start-btn text-white">
-                Get Started
+              <button onClick={props.register} className="start-btn text-white">
+                Register Yourself
               </button>
             </div>
           </div>
