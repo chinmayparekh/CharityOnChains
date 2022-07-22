@@ -67,43 +67,25 @@
     margin-bottom: 20px;
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column;
-
-}
-
-.images {
-    display: flex;
-}
-
-.title {
-
-    width: 560px;
-}
 
 .title p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 45px;
-    line-height: 84px;
+    font-size: 36px;
     color: #080808;
 }
 
 .description {
-    width: 580px;
-    height: 162px;
+    height: auto;
 }
 
 .description p {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
-    line-height: 42px;
+    font-size: 20px;
+    line-height: 40px;
     color: #747171;
 }
 
@@ -163,13 +145,6 @@
     border-radius:25px;
     margin-left: 10px;
 }   
-
-.logos {
-    margin-top: 200px;
-    margin-right: 100px;
-    width: 60px;
-    height: 60px;
-}
 
 .works-with {
     margin-top: 20px;
@@ -236,23 +211,13 @@
     flex-direction: row;
 }
 
-.card {
-    margin-top: 40px;
+.my-card{
+    height: 300px;
 }
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+.info-row .card-img-top{
+    align-self: center;
+    width: 256px
 }
-
-#Page3 {
-    width: 70vw;
-    height: 336px;
-    border-radius: 20px;
-}
-
 .card-heading {
     font-family: 'Montserrat';
     font-style: normal;
@@ -260,15 +225,26 @@
     font-size: 40px;
     line-height: 64px;
     text-align: center;
-    color: #FFFFFF;
+}
+.layout-row .card-img-top{
+    width: 80%;
+    align-self: center;
 }
 
-.card-content {
-    width: 810px;
-    height: 86px;
+.layout-heading{
+    font-family: 'Montserrat';
+    font-style: normal; 
+    text-align: center;
+    font-weight: 700;
+    font-size: 26px;
+
 }
 
-.card-text {
+.layout-image{
+    height: 50%;
+    width: 50%;
+}
+.card-t {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,8 +253,6 @@
     font-weight: 600;
     font-size: 19px;
     line-height: 36px;
-    text-align: center;
-    color: #FFFFFF;
 
 }
 
@@ -316,10 +290,6 @@
     line-height: 56px;
     color: rgba(41, 41, 41, 0.3);
     margin: 0px;
-}
-
-.brands {
-    display: flex;
 }
 
 .order-content {

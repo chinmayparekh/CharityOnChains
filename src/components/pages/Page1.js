@@ -9,9 +9,8 @@ import logo from "../images/logo.png";
 const Page1 = (props) => {
   return (
     <>
-      <section className="mt-50">
-        <div className="flex-container">
-          <div className="content">
+      <div className="row">
+          <div className="col-12 col-sm-5 offset-sm-2">
             <div className="title">
               <p>Don’t wait. This time is to Give</p>
             </div>
@@ -22,21 +21,29 @@ const Page1 = (props) => {
                 reaching the deserving hands or not.
               </p>
             </div>
-            
           </div>
-          <div className="images">
-            <img className="logo-image" src={logo} alt=""></img>
+          <div className="images col-12 col-sm-5">
+            <img src={logo} alt="logo" height="225px" width="225px"></img>
           </div>
         </div>
-      </section>
-      <div className="flex brands mb-50">
-        <img className="logos" src={eye} alt=""></img>
-        <img className="logos" src={tree} alt=""></img>
-        <img className="logos" src={heart} alt=""></img>
-        <img className="logos" src={salary} alt=""></img>
-        <img className="logos" src={cardiogram} alt=""></img>
+      <div className="row my-4">
+        <div className="col-2 me-1 offset-1">
+          <img src={eye} alt="" height="60px" width="60px"></img>
+        </div>
+        <div className="col-2 m-1">
+          <img src={tree} alt="" height="60px" width="60px"></img>
+        </div>
+        <div className="col-2 m-1">
+          <img src={heart} alt=""height="60px" width="60px"></img>
+        </div>
+        <div className="col-2 m-1">
+          <img src={salary} alt=""height="60px" width="60px"></img>
+        </div>
+        <div className="col-2 m-1">
+          <img src={cardiogram} alt=""height="60px" width="60px"></img>
+        </div>
       </div>
-    </>
+      </>
   );
 };
 

@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { connectWallet, getAccount } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
-
-
 import "../styles/Navbar.css";
+
 const Navbar = () => {
   const [account, setAccount] = useState("");
 
@@ -65,7 +64,7 @@ const Navbar = () => {
           <ul>
             <li>
               <button
-                onClick={onConnectWallet}
+                onClick={()=> account?null:onConnectWallet}
                 className="btn btn-outline-info"
               >
                 {/* TODO 5.a - Show account address if wallet is connected */}
