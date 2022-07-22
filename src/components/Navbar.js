@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { connectWallet, getAccount } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
+import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [account, setAccount] = useState("");
-
+  const [userDD,setUserDD]=useState(false);
   useEffect(() => {
     (async () => {
       // TODO 5.b - Get the active account
@@ -26,6 +27,7 @@ const Navbar = () => {
     await connectWallet();
     const account = await getAccount();
     setAccount(account);
+    setUserDD(true);
     const storage = await fetchStorage();
     if(Object.values(storage["donors"]).indexOf(account)<=-1 &&
        Object.values(storage["beneficiaries"]).indexOf(account)<=-1 &&
@@ -52,29 +54,34 @@ const Navbar = () => {
     
   };
   return (
-    <>
-      <nav className="navigation">
-        <div className="nav-logo">
-          <a href="/" className="logo">
-            Charity on Chains
-          </a>
-        </div>
-
-        <div className="navigation-menu">
-          <ul>
-            <li>
-              <button
-                onClick={()=> account?null:onConnectWallet}
-                className="btn btn-outline-info"
-              >
-                {/* TODO 5.a - Show account address if wallet is connected */}
-                {account ? account : "Connect Wallet"}
-              </button>
-            </li>
-          </ul>
+      <nav className="navbar navbar-dark bg-dark">
+        <div className="container">
+            <a className="nav-brand mr-auto" href="/">Charity on Chain</a>
+            <ul className="navbar-nav mr-auto">
+            </ul>
+            <span className="navbar-text">
+              {account===""?<button 
+              onClick={onConnectWallet}
+              className="btn btn-outline-info" style={{color: '#0dcaf0'}}>
+              {"Connect Wallet"}
+            </button>
+            : 
+            <Dropdown isOpen={userDD} toggle={()=>setUserDD(!userDD)} direction="down" size="50px" inNavbar={true}>
+              <DropdownToggle caret>
+                {account}
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={onConnectWallet}>Change Account</DropdownItem>
+                <DropdownItem divider></DropdownItem>
+                <DropdownItem>Logout</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            
+            }
+            
+            </span>
         </div>
       </nav>
-    </>
   );
 };
 

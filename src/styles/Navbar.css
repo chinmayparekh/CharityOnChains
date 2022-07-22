@@ -1,4 +1,4 @@
-nav {
+/* nav {
     margin-top: 10px;
 }
 
@@ -16,21 +16,13 @@ nav {
 }
 
 .navigation-menu {
-    /* margin-left: auto; */
+    margin-left: auto;
     display: flex;
     justify-content: end;
     flex-grow: 2;
 
 
 }
-
-.nav-logo {
-
-    display: flex;
-    margin-left: 125px;
-    justify-content: center;
-}
-
 
 
 
@@ -91,4 +83,19 @@ nav {
 
 .logo-image {
     width: 500px;
+} */
+
+.navbar-dark {
+    background-color: #512DA8; }
+
+.nav-brand {
+ text-decoration: none;
+ font-family: 'Montserrat';
+ font-style: normal;
+ font-weight: 600;
+ font-size:32px;
+ color: #E53231;
+}
+.nav-brand :hover{
+    color: #263141; 
 }
