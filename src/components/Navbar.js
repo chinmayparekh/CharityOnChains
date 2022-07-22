@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { connectWallet, getAccount } from "../utils/wallet";
+import { connectWallet, getAccount,disconnectWallet } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
 import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
@@ -22,6 +22,12 @@ const Navbar = () => {
   const routeChange = (path) => {
     navigate(path);
   };
+
+  const onDisconnectWallet = async() => {
+    await disconnectWallet();
+    setAccount("");
+    setUserDD(false);
+  }
 
   const onConnectWallet = async () => {
     await connectWallet();
@@ -62,7 +68,7 @@ const Navbar = () => {
             <span className="navbar-text">
               {account===""?<button 
               onClick={onConnectWallet}
-              className="btn btn-outline-info" style={{color: '#0dcaf0'}}>
+              className="btn btn-outline-info" style={{color: '#ffffff'}}>
               {"Connect Wallet"}
             </button>
             : 
@@ -73,7 +79,7 @@ const Navbar = () => {
               <DropdownMenu>
                 <DropdownItem onClick={onConnectWallet}>Change Account</DropdownItem>
                 <DropdownItem divider></DropdownItem>
-                <DropdownItem>Logout</DropdownItem>
+                <DropdownItem onClick={onDisconnectWallet}>Logout</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             
