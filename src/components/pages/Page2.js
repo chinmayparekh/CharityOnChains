@@ -35,7 +35,7 @@ const Page2 = (props) => {
               <CardHeader className="layout-heading">Creating a Better Future through your Help </CardHeader>
               <CardBody className="card-t">
                 <CardText>We have partnered with over 10 NGOs which have revolutionized
-                healthcare, sanitation, education and nutrition.</CardText>
+                healthcare, sanitation, education and nutrition. We heartfully welcome NGO's to join us.</CardText>
               </CardBody>
             </Card>
           </div>
@@ -63,7 +63,7 @@ const Page2 = (props) => {
             <Layout
               id="Donor"
               title="Register yourself as a Donor"
-              content="Giving is the Best therapy."
+              content="Giving is not just make a donation, it's about making difference."
               image={donors}
               register = {async ()=>{
                 try {
