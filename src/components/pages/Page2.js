@@ -19,7 +19,7 @@ const Page2 = (props) => {
     <div id="Page2">
         <div className="row h-500 py-5 info-row">
           <div className="col-12 col-sm-6">
-          <Card  color="danger" inverse className="text-center" style={{borderRadius: "20px"}}>
+          <Card  color="success" inverse className="text-center" style={{borderRadius: "20px"}}>
               <CardImg top className="m-3" src={happy} alt="happy" height="256px"></CardImg>
               <CardHeader className="layout-heading"> You have the power to bring happiness.</CardHeader>
               <CardBody className="text">
@@ -30,7 +30,7 @@ const Page2 = (props) => {
             </Card> 
           </div>
           <div className="col-12 col-sm-6">
-            <Card  color="dark" inverse className="text-center" style={{borderRadius: "20px"}}>
+            <Card  color="primary" inverse className="text-center" style={{borderRadius: "20px"}}>
               <CardImg top className="m-3" src={help} alt="help" height="256px"></CardImg>
               <CardHeader className="layout-heading">Creating a Better Future through your Help </CardHeader>
               <CardBody className="card-t">
