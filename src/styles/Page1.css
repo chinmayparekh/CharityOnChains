@@ -27,7 +27,7 @@
 .column-2 {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     margin-right: 20px;
 
 
@@ -142,9 +142,9 @@
     align-items: center;
     padding: 10px 30px;
     gap: 10px;
-    border-radius:25px;
+    border-radius: 25px;
     margin-left: 10px;
-}   
+}
 
 .works-with {
     margin-top: 20px;
@@ -211,13 +211,15 @@
     flex-direction: row;
 }
 
-.my-card{
+.my-card {
     height: 300px;
 }
-.info-row .card-img-top{
+
+.info-row .card-img-top {
     align-self: center;
     width: 256px
 }
+
 .card-heading {
     font-family: 'Montserrat';
     font-style: normal;
@@ -226,24 +228,26 @@
     line-height: 64px;
     text-align: center;
 }
-.layout-row .card-img-top{
+
+.layout-row .card-img-top {
     width: 80%;
     align-self: center;
 }
 
-.layout-heading{
+.layout-heading {
     font-family: 'Montserrat';
-    font-style: normal; 
+    font-style: normal;
     text-align: center;
     font-weight: 700;
     font-size: 26px;
 
 }
 
-.layout-image{
+.layout-image {
     height: 50%;
     width: 50%;
 }
+
 .card-t {
     display: flex;
     justify-content: center;
@@ -350,7 +354,67 @@
     line-height: 36px;
     color: #292929;
 }
+
 .icons {
     width: 32px;
     height: 32px;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.register label {
+    text-align: left;
+    display: block;
+}
+
+.title {
+    font-size: 28px;
+    color: #f1356d;
+    margin: 0 auto;
+}
+
+.register input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+
+.save {
+    background: #f1356d;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+input:valid {
+    background-color: #ddffdd;
+}
+
+form:valid {
+    border: 5px solid #259e25;
+}
+
+input:required {
+    border-color: #800000;
+    border-width: 3px;
+}
+
+input:required:invalid {
+    border-color: #c00000;
+}
+input:required:valid{
+    border: 5px solid #185e18;
+
 }
