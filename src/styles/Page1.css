@@ -1,15 +1,14 @@
 .cyan
 {
-   font-family: 'Roboto', sans-serif;
    color: #00dae4;
 }
 
 .white{
-   font-family: 'Roboto', sans-serif;
    color: white;
 }
 
 .cyan,.white{
+   font-family: 'Roboto', sans-serif;
    font-size:90px;
 }
 
@@ -38,13 +37,63 @@
    z-index:-1;
 }
 
-.halfcontainer{
-   flex:1;
-   margin: 5px;
-   word-wrap: break-word;
+
+
+.page,.myContainer{
    display: flex;
+   justify-content: space-between;
+   /* border-style: solid; */
+}
+
+.myContainer{
+   flex-direction: row;
+   width:50%;
+}
+
+.page{
+   flex-direction: column;
    align-items: center;
 }
+
+.smalltext, .headingtext{
+   color: #1f2432;
+}
+.smalltext{
+   font-size: 20px;
+}
+
+.headingtext{
+   font-size: 40px;
+   line-height: 15px;
+}
+
+.image{
+   width:400px;
+}
+.page{
+   width:100%;
+   justify-content: center;
+}
+
+
+.halfcontainer,.imagecontainer{
+   flex:1;
+   margin: 5px;
+   /* border-style: solid; */
+   word-wrap: break-word;
+   display: flex;
+}
+
+.halfcontainer{
+   align-items: center;
+}
+
+.hr{
+   width:25%;
+   border-bottom: 2px solid #00dae4;
+   border-radius: 20%;
+}
+
 
 .flex-container {
     display: flex;

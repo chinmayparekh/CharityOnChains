@@ -60,7 +60,7 @@ const Navbar = () => {
     
   };
   return (
-      <nav className="navbar navbar-dark">
+      <nav className="navbar navbar-dark sticky-top">
         <div className="container">
             <a className="nav-brand mr-auto" href="/">Charity on Chains</a>
             <ul className="navbar-nav mr-auto">
@@ -82,9 +82,7 @@ const Navbar = () => {
                 <DropdownItem onClick={onDisconnectWallet}>Logout</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            
             }
-            
             </span>
         </div>
       </nav>

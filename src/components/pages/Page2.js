@@ -8,9 +8,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import ngo from "../images/ngo.png";
 import donors from "../images/donor.png";
-import happy from "../images/happy.png";
 import store from "../images/store.png";
 import help from "../images/help.png";
+import happy from "../images/happy.svg";
+import wheelchair from "../images/wheelchair.svg";
 import { Card, CardBody, CardText, CardImg, CardHeader } from "reactstrap";
 
 const Page2 = (props) => {
@@ -18,10 +19,49 @@ const Page2 = (props) => {
   const routeChange = (path) => {
     navigate(path);
   };
+  
 
   return (
     <>
-      <div className="container">
+    <div className="page">
+      <div className="myContainer">
+            <div className="halfcontainer">
+               <img src={wheelchair} alt="banner" className="image"/>
+            </div>
+            <div className="imagecontainer mt-3">
+            <div className="cyan smalltext">
+            <span className="headingtext">You have the power to bring happiness.</span>
+            <p className="mt-4">Many fake charity organizations pose as genuine and loot
+                    money from innocent people in the name of charity. Our
+                    charity platform brings transparency to online charity
+                    trusts.</p>
+            </div>
+              
+            </div>
+         </div>
+
+         <br></br>
+         <div className="hr"></div>
+         <br></br>
+
+
+         <div className="myContainer">
+            <div className="halfcontainer">
+               <img src={happy} alt="banner" className="image"/>
+            </div>
+            <div className="imagecontainer mt-3">
+            <div className="cyan smalltext">
+            <span className="headingtext">Creating a Better Future through your Help.</span>
+            <p className="mt-4">We have partnered with over 10 NGOs which have
+                    revolutionized healthcare, sanitation, education and
+                    nutrition. We heartfully welcome NGO's to join us.</p>
+            </div>
+              
+            </div>
+         </div>
+    </div>
+      
+      {/* <div className="container">
         <div id="Page2">
           <div className="row h-500 py-5 info-row">
             <div className="col-12 col-sm-6">
@@ -151,7 +191,7 @@ const Page2 = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
