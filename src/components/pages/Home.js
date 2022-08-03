@@ -4,8 +4,8 @@ function Home() {
   return (
     // <div className="container my-3">
     <>
-      <Page1 />
-      <Page2 />
+      <Page1/>
+      <Page2/>
     </>
 
     // </div>

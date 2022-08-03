@@ -7,10 +7,11 @@ import heart from "../images/heart.png";
 import cardiogram from "../images/cardiogram.png";
 import logo from "../images/logo.png";
 import blackChild from "../images/blackChild.jpg";
+import banner from "../images/banner.svg";
 const Page1 = (props) => {
   return (
     <>
-      <section>
+      {/* <section>
         <div>
           <img className="ngo-banner" src={blackChild} alt=""></img>
         </div>
@@ -50,7 +51,18 @@ const Page1 = (props) => {
             <img src={cardiogram} alt="" height="60px" width="60px"></img>
           </div>
         </div>
+      </div> */}
+      <div className="banner">
+         <div className="halfcontainer">
+            <img src={banner} alt="banner"/>
+         </div>
+         <div className="halfcontainer">
+            <div className="white">
+            Transform Your Business With <span className="cyan">BlockChain</span>
+            </div>
+         </div>
       </div>
+      <br/>
     </>
   );
 };

@@ -86,7 +86,7 @@
 } */
 
 .navbar-dark {
-    background-color: #512DA8; }
+    background-color: #1f2432; }
 
 .nav-brand {
  text-decoration: none;
@@ -94,7 +94,7 @@
  font-style: normal;
  font-weight: 600;
  font-size:32px;
- color: #E53231;
+ color: #00dae4;
 }
 .nav-brand :hover{
     color: #263141; 

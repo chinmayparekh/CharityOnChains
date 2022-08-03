@@ -60,7 +60,7 @@ const Navbar = () => {
     
   };
   return (
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-dark">
         <div className="container">
             <a className="nav-brand mr-auto" href="/">Charity on Chains</a>
             <ul className="navbar-nav mr-auto">
