@@ -414,7 +414,15 @@ input:required {
 input:required:invalid {
     border-color: #c00000;
 }
-input:required:valid{
+
+input:required:valid {
     border: 5px solid #185e18;
 
+}
+
+.ngo-banner {
+    height: 30vw;
+    width: 100vw;
+    opacity: 0.50;
+    /* filter: grayscale(100%); */
 }

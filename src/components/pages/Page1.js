@@ -6,10 +6,17 @@ import salary from "../images/salary.png";
 import heart from "../images/heart.png";
 import cardiogram from "../images/cardiogram.png";
 import logo from "../images/logo.png";
+import blackChild from "../images/blackChild.jpg";
 const Page1 = (props) => {
   return (
     <>
-      <div className="row">
+      <section>
+        <div>
+          <img className="ngo-banner" src={blackChild} alt=""></img>
+        </div>
+      </section>
+      <div className="container">
+        <div className="row">
           <div className="col-12 col-sm-5 offset-sm-2">
             <div className="title">
               <p>Don’t wait. This time is to Give</p>
@@ -26,24 +33,25 @@ const Page1 = (props) => {
             <img src={logo} alt="logo" height="225px" width="225px"></img>
           </div>
         </div>
-      <div className="row my-4">
-        <div className="col-2 me-1 offset-1">
-          <img src={eye} alt="" height="60px" width="60px"></img>
-        </div>
-        <div className="col-2 m-1">
-          <img src={tree} alt="" height="60px" width="60px"></img>
-        </div>
-        <div className="col-2 m-1">
-          <img src={heart} alt=""height="60px" width="60px"></img>
-        </div>
-        <div className="col-2 m-1">
-          <img src={salary} alt=""height="60px" width="60px"></img>
-        </div>
-        <div className="col-2 m-1">
-          <img src={cardiogram} alt=""height="60px" width="60px"></img>
+        <div className="row my-4">
+          <div className="col-2 me-1 offset-1">
+            <img src={eye} alt="" height="60px" width="60px"></img>
+          </div>
+          <div className="col-2 m-1">
+            <img src={tree} alt="" height="60px" width="60px"></img>
+          </div>
+          <div className="col-2 m-1">
+            <img src={heart} alt="" height="60px" width="60px"></img>
+          </div>
+          <div className="col-2 m-1">
+            <img src={salary} alt="" height="60px" width="60px"></img>
+          </div>
+          <div className="col-2 m-1">
+            <img src={cardiogram} alt="" height="60px" width="60px"></img>
+          </div>
         </div>
       </div>
-      </>
+    </>
   );
 };
 

@@ -18,6 +18,8 @@ const Layout = (props) => {
     setBasicModal(!basicModal);
   };
   const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [sector, setSector] = useState("");
   const [license, setLicense] = useState("");
   const [email, setEmail] = useState("");
 
@@ -90,16 +92,31 @@ const Layout = (props) => {
                     <label>{props.modal2} </label>
                     <input
                       type="text"
-                      value={license}
-                      onChange={(e) => setLicense(e.target.value)}
+                      value={type}
+                      onChange={(e) => setType(e.target.value)}
                       required
                     />
                     <label>{props.modal3} </label>
                     <input
+                      type="text"
+                      value={sector}
+                      onChange={(e) => setSector(e.target.value)}
+                      required
+                    />
+                    <label>{props.modal4} </label>
+                    <input
                       type="email"
+                      value={license}
+                      onChange={(e) => setLicense(e.target.value)}
+                      required
+                    />
+                    <label>{props.modal5} </label>
+                    <input
+                      type="text"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      default=""
                     />
                   </form>
                 </div>
