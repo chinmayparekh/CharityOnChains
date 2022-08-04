@@ -82,16 +82,29 @@
    /* border-style: solid; */
    word-wrap: break-word;
    display: flex;
+   flex-direction: column;
 }
 
 .halfcontainer{
-   align-items: center;
+   align-items:flex-start;
+   text-align: left;
 }
 
 .hr{
    width:25%;
    border-bottom: 2px solid #00dae4;
    border-radius: 20%;
+}
+
+.cyanline{
+   width: 10%;
+   border-bottom:5px solid #00dae4;
+}
+
+.smaller{
+   font-size: 30px;
+   line-height: 30px;
+   font-weight: 500;
 }
 
 

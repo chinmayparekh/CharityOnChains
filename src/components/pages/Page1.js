@@ -16,9 +16,15 @@ const Page1 = (props) => {
             <img src={banner} alt="banner"/>
          </div>
          <div className="halfcontainer">
-            <div className="white">
+            <div className="white mb-4">
             Transform Your Business With <span className="cyan">BlockChain</span>
             </div>
+            <div className="cyanline mb-4"></div>
+            <div className="white mb-5 smaller">
+            Disrupt your industry. Power your startup. Rationalize and control your business.
+            </div>
+            {/* <br></br> */}
+           
          </div>
       </div>
       <br></br>

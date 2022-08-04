@@ -41,23 +41,22 @@ const Page2 = (props) => {
          </div>
 
          <br></br>
-         <div className="hr"></div>
-         <br></br>
 
+         <div className="hr mb-5"></div>
 
          <div className="myContainer">
+         <div className="imagecontainer mt-3">
+               <div className="cyan smalltext">
+                  <span className="headingtext">Creating a Better Future through your Help.</span>
+                  <p className="mt-4">We have partnered with over 10 NGOs which have
+                        revolutionized healthcare, sanitation, education and
+                        nutrition. We heartfully welcome NGO's to join us.</p>
+               </div>
+            </div>
             <div className="halfcontainer">
                <img src={happy} alt="banner" className="image"/>
             </div>
-            <div className="imagecontainer mt-3">
-            <div className="cyan smalltext">
-            <span className="headingtext">Creating a Better Future through your Help.</span>
-            <p className="mt-4">We have partnered with over 10 NGOs which have
-                    revolutionized healthcare, sanitation, education and
-                    nutrition. We heartfully welcome NGO's to join us.</p>
-            </div>
-              
-            </div>
+            
          </div>
     </div>
       
