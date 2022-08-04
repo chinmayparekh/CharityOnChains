@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { connectWallet, getAccount,disconnectWallet } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
-import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
+import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, UncontrolledDropdown, Button} from 'reactstrap';
 import "../styles/Navbar.css";
 
 const Navbar = () => {
@@ -65,7 +65,29 @@ const Navbar = () => {
             <a className="nav-brand mr-auto" href="/">Charity on Chains</a>
             <ul className="navbar-nav mr-auto">
             </ul>
-            <span className="navbar-text">
+            <div className="navdropdown">
+            <UncontrolledDropdown>
+               <DropdownToggle
+                  caret
+                  color="dark"
+               >
+                  Register
+               </DropdownToggle>
+               <DropdownMenu dark>
+                  <DropdownItem>
+                     Register as NGO
+                  </DropdownItem>
+                  <DropdownItem>
+                    Register as Donor 
+                  </DropdownItem>
+                  <DropdownItem text>
+                     Register as Store
+                  </DropdownItem>
+               </DropdownMenu>
+            </UncontrolledDropdown>
+            </div>
+            <span className="navbar-text"> 
+            
               {account===""?<button 
               onClick={onConnectWallet}
               className="btn btn-outline-info" style={{color: '#ffffff'}}>
