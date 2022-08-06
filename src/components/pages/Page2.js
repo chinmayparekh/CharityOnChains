@@ -6,13 +6,8 @@ import {
   registerStore,
 } from "../../utils/operation";
 import { useNavigate } from "react-router-dom";
-import ngo from "../images/ngo.png";
-import donors from "../images/donor.png";
-import store from "../images/store.png";
-import help from "../images/help.png";
 import happy from "../images/happy.svg";
 import wheelchair from "../images/wheelchair.svg";
-import { Card, CardBody, CardText, CardImg, CardHeader } from "reactstrap";
 
 const Page2 = (props) => {
   let navigate = useNavigate();

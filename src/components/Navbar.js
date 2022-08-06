@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { connectWallet, getAccount,disconnectWallet } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
-import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, UncontrolledDropdown, Button} from 'reactstrap';
+import {Dropdown, DropdownItem, DropdownToggle, DropdownMenu, UncontrolledDropdown} from 'reactstrap';
 import "../styles/Navbar.css";
 
 const Navbar = () => {

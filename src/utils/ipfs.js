@@ -4,7 +4,6 @@ const ipfs = new IPFS({
   port: 5001,
   protocol: "https",
 });
-let a = 1;
 let obj;
 export async function addData() {
   ipfs.addJSON({ somevalue: 2, name: "Nick" }, (err, result) => {
