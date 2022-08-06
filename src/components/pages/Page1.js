@@ -23,8 +23,6 @@ const Page1 = (props) => {
             <div className="white mb-5 smaller">
             Disrupt your industry. Power your startup. Rationalize and control your business.
             </div>
-            <button className="mybutton mt-5"> Get Started</button>
-            {/* <br></br> */}
            
          </div>
       </div>
