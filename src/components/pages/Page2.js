@@ -6,111 +6,69 @@ import {
   registerStore,
 } from "../../utils/operation";
 import { useNavigate } from "react-router-dom";
+import help from "../images/help.png";
+import ngo from "../images/ngo.png";
+import donors from "../images/donor.png";
+import store from "../images/store.png";
 import happy from "../images/happy.svg";
 import wheelchair from "../images/wheelchair.svg";
+import { Card, CardBody, CardText, CardImg, CardHeader } from "reactstrap";
 
 const Page2 = (props) => {
   let navigate = useNavigate();
   const routeChange = (path) => {
     navigate(path);
   };
-  
 
   return (
     <>
-    <div className="page">
-      <div className="myContainer">
-            <div className="halfcontainer">
-               <img src={wheelchair} alt="banner" className="image"/>
-            </div>
-            <div className="imagecontainer mt-3">
+      <div className="page">
+        <div className="myContainer">
+          <div className="halfcontainer">
+            <img src={wheelchair} alt="banner" className="image" />
+          </div>
+          <div className="imagecontainer mt-3">
             <div className="cyan smalltext">
-            <span className="headingtext">You have the power to bring happiness.</span>
-            <p className="mt-4">Many fake charity organizations pose as genuine and loot
-                    money from innocent people in the name of charity. Our
-                    charity platform brings transparency to online charity
-                    trusts.</p>
+              <span className="headingtext">
+                You have the power to bring happiness.
+              </span>
+              <p className="mt-4">
+                Many fake charity organizations pose as genuine and loot money
+                from innocent people in the name of charity. Our charity
+                platform brings transparency to online charity trusts.
+              </p>
             </div>
-              
-            </div>
-         </div>
+          </div>
+        </div>
 
-         <br></br>
+        <br></br>
 
-         <div className="hr mb-5"></div>
+        <div className="hr mb-5"></div>
 
-         <div className="myContainer">
-         <div className="imagecontainer mt-3">
-               <div className="cyan smalltext">
-                  <span className="headingtext">Creating a Better Future through your Help.</span>
-                  <p className="mt-4">We have partnered with over 10 NGOs which have
-                        revolutionized healthcare, sanitation, education and
-                        nutrition. We heartfully welcome NGO's to join us.</p>
-               </div>
+        <div className="myContainer">
+          <div className="imagecontainer mt-3">
+            <div className="cyan smalltext">
+              <span className="headingtext">
+                Creating a Better Future through your Help.
+              </span>
+              <p className="mt-4">
+                We have partnered with over 10 NGOs which have revolutionized
+                healthcare, sanitation, education and nutrition. We heartfully
+                welcome NGO's to join us.
+              </p>
             </div>
-            <div className="halfcontainer">
-               <img src={happy} alt="banner" className="image"/>
-            </div>
-            
-         </div>
-    </div>
-      
-      {/* <div className="container">
+          </div>
+          <div className="halfcontainer">
+            <img src={happy} alt="banner" className="image" />
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
         <div id="Page2">
           <div className="row h-500 py-5 info-row">
             <div className="col-12 col-sm-6">
-              <Card
-                color="success"
-                inverse
-                className="text-center"
-                style={{ borderRadius: "20px" }}
-              >
-                <CardImg
-                  top
-                  className="m-3"
-                  src={happy}
-                  alt="happy"
-                  height="256px"
-                ></CardImg>
-                <CardHeader className="layout-heading">
-                  {" "}
-                  You have the power to bring happiness.
-                </CardHeader>
-                <CardBody className="text">
-                  <CardText>
-                    Many fake charity organizations pose as genuine and loot
-                    money from innocent people in the name of charity. Our
-                    charity platform brings transparency to online charity
-                    trusts.
-                  </CardText>
-                </CardBody>
-              </Card>
-            </div>
-            <div className="col-12 col-sm-6">
-              <Card
-                color="primary"
-                inverse
-                className="text-center"
-                style={{ borderRadius: "20px" }}
-              >
-                <CardImg
-                  top
-                  className="m-3"
-                  src={help}
-                  alt="help"
-                  height="256px"
-                ></CardImg>
-                <CardHeader className="layout-heading">
-                  Creating a Better Future through your Help{" "}
-                </CardHeader>
-                <CardBody className="card-t">
-                  <CardText>
-                    We have partnered with over 10 NGOs which have
-                    revolutionized healthcare, sanitation, education and
-                    nutrition. We heartfully welcome NGO's to join us.
-                  </CardText>
-                </CardBody>
-              </Card>
+
             </div>
           </div>
           <div className="row mb-3 layout-row">
@@ -185,7 +143,7 @@ const Page2 = (props) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

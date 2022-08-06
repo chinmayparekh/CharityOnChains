@@ -17,11 +17,11 @@ const Layout = (props) => {
   const toggleShow = () => {
     setBasicModal(!basicModal);
   };
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [sector, setSector] = useState("");
-  const [license, setLicense] = useState("");
-  const [email, setEmail] = useState("");
+  const [field1, setField1] = useState("");
+  const [field2, setField2] = useState("");
+  const [field3, setField3] = useState("");
+  const [field4, setField4] = useState("");
+  const [field5, setField5] = useState("");
 
   const textStyle = {
     border: "2px solid red",
@@ -31,7 +31,7 @@ const Layout = (props) => {
   };
   const checkForm = (data) => {
     //form is valid
-    if (data.name !== "" && data.license !== "" && data.email !== "") {
+    if (data.field1 !== "" && data.field2 !== "" && data.field3 !== "") {
       console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
@@ -45,14 +45,14 @@ const Layout = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { name, license, email };
+    const data = { field1, field2, field3, field4, field5 };
     checkForm(data);
     console.log(data);
   };
 
   return (
     <Card className="text-center">
-      <CardHeader color="dark" className="layout-heading">
+      <CardHeader color="dark" className="layout-heading ">
         {props.title}
       </CardHeader>
       <CardImg
@@ -71,7 +71,7 @@ const Layout = (props) => {
             <MDBModalContent>
               <MDBModalHeader>
                 <MDBModalTitle>
-                  <p className="title">{props.modalTitle}</p>
+                  <p className="title ">{props.modalTitle}</p>
                 </MDBModalTitle>
                 <MDBBtn
                   className="btn-close"
@@ -85,36 +85,36 @@ const Layout = (props) => {
                     <label>{props.modal1} </label>
                     <input
                       type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      value={field1}
+                      onChange={(e) => setField1(e.target.value)}
                       required
                     />
                     <label>{props.modal2} </label>
                     <input
                       type="text"
-                      value={type}
-                      onChange={(e) => setType(e.target.value)}
+                      value={field2}
+                      onChange={(e) => setField2(e.target.value)}
                       required
                     />
                     <label>{props.modal3} </label>
                     <input
                       type="text"
-                      value={sector}
-                      onChange={(e) => setSector(e.target.value)}
+                      value={field3}
+                      onChange={(e) => setField3(e.target.value)}
                       required
                     />
                     <label>{props.modal4} </label>
                     <input
                       type="email"
-                      value={license}
-                      onChange={(e) => setLicense(e.target.value)}
+                      value={field4}
+                      onChange={(e) => setField4(e.target.value)}
                       required
                     />
                     <label>{props.modal5} </label>
                     <input
                       type="text"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={field5}
+                      onChange={(e) => setField5(e.target.value)}
                       required
                       default=""
                     />
