@@ -7,9 +7,8 @@ import Footer from "./components/Footer";
 import Donor from "./components/users/Donor";
 import NGO from "./components/users/NGO";
 import Store from "./components/users/Store";
-import { addData } from "./utils/ipfs";
+
 function App() {
-  addData()
   return (
     <>
       <BrowserRouter>
