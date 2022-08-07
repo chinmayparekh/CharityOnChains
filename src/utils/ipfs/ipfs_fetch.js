@@ -1,16 +1,12 @@
-export async function fetchData(hash){
-    let obj=hash;
-    const url = 'https://ipfs.io/ipfs/${obj}'
-    await fetch(
-        url
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          obj = data;
+export function fetchData(hash,func) {
+  const url = "https://ipfs.io/ipfs/" + hash;
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      func(data);
     });
-    return obj;
 }
 
-export default fetchData
+export default fetchData;
