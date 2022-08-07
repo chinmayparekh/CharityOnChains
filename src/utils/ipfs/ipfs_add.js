@@ -4,23 +4,11 @@ const ipfs = new IPFS({
   port: 5001,
   protocol: "https",
 });
-var hash = [];
-function extract(result) {
-  hash = result;
-  console.log("Extracting ");
-  console.log(hash);
-  return hash;
-}
-function addjson(err, result) {
-  console.log("INside");
-  console.log(err, result);
-  extract(result);
-  return result;
-}
-export function addData(data) {
+
+export function addData(data,register) {
   ipfs.addJSON(data).then((result) => {
-    extract(result);
-  addjson("abc", result)});
+    register(result);
+});
 }
 
 export default addData;

@@ -37,9 +37,9 @@ const Layout = (props) => {
       console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
-      const hash = addData(data)
-      console.log(hash)
-      console.log("after that")
+      addData(data,props.register);
+      //console.log(hash)
+      //console.log("after that")
 
       
       //props.register();

@@ -44,8 +44,7 @@ const Navbar = () => {
     const storage = await fetchStorage();
     if (
       Object.values(storage["donors"]).indexOf(account) <= -1 &&
-      Object.values(storage["beneficiaries"]).indexOf(account) <= -1 &&
-      Object.values(storage["charity_organisations"]).indexOf(account) <= -1 &&
+      Object.values(storage["ngos"]).indexOf(account) <= -1 &&
       Object.values(storage["cooperative_stores"]).indexOf(account) <= -1
     ) {
       console.log(storage["donors"][0]);
@@ -53,7 +52,7 @@ const Navbar = () => {
       //function to display donor page
       routeChange("donor");
     } else if (
-      Object.values(storage["charity_organisations"]).indexOf(account) > -1
+      Object.values(storage["ngos"]).indexOf(account) > -1
     ) {
       //function to display charity page
       routeChange("ngo");

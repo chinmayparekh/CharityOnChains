@@ -84,9 +84,9 @@ const Page2 = (props) => {
                 modal3="Sector"
                 modal4="Registeration License"
                 modal5="Email ID"
-                register={async () => {
+                register={async (hash) => {
                   try {
-                    await registerNGO();
+                    await registerNGO(hash);
                     alert("Transaction succesful!");
                     routeChange("ngo");
                   } catch (err) {
@@ -107,9 +107,9 @@ const Page2 = (props) => {
                 modal3="Phone number"
                 modal4="Email ID"
                 modal5="Country"
-                register={async () => {
+                register={async (hash) => {
                   try {
-                    await registerDonor();
+                    await registerDonor(hash);
                     alert("Transaction succesful!");
                     routeChange("donor");
                   } catch (err) {
@@ -130,9 +130,9 @@ const Page2 = (props) => {
                 modal3="Service/Product Provided"
                 modal4="Email ID"
                 modal5="Location"
-                register={async () => {
+                register={async (hash) => {
                   try {
-                    await registerStore();
+                    await registerStore(hash);
                     alert("Transaction succesful!");
                     routeChange("store");
                   } catch (err) {
