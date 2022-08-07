@@ -39,6 +39,7 @@ const Layout = (props) => {
       toggleShow();
       const hash = addData(data)
       console.log(hash)
+      console.log("after that")
 
       
       //props.register();
