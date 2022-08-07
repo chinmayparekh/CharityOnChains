@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Page1.css";
 import { addData } from "../utils/ipfs/ipfs_add";
-import { fetchData } from "../utils/ipfs/ipfs_fetch"
 import {
   MDBBtn,
   MDBModal,
@@ -37,12 +36,7 @@ const Layout = (props) => {
       console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
-      addData(data,props.register);
-      //console.log(hash)
-      //console.log("after that")
-
-      
-      //props.register();
+      addData(data, props.register);
     }
     //form is invalid
     else {
