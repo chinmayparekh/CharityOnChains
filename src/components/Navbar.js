@@ -34,6 +34,9 @@ const Navbar = () => {
     await disconnectWallet();
     setAccount("");
     setUserDD(false);
+    const storage = await fetchStorage();
+    console.log(storage);
+    routeChange("/");
   };
 
   const onConnectWallet = async () => {
@@ -42,22 +45,23 @@ const Navbar = () => {
     setAccount(account);
     setUserDD(true);
     const storage = await fetchStorage();
+    
     if (
-      Object.values(storage["donors"]).indexOf(account) <= -1 &&
-      Object.values(storage["ngos"]).indexOf(account) <= -1 &&
-      Object.values(storage["cooperative_stores"]).indexOf(account) <= -1
+      !(account in storage["donors"])&&
+      !(account in storage["ngos"]) &&
+      !(account in storage["cooperative_stores"]) 
     ) {
-      console.log(storage["donors"][0]);
-    } else if (Object.values(storage["donors"]).indexOf(account) > -1) {
+      console.log(" ")
+    } else if (account in storage["donors"]) {
       //function to display donor page
       routeChange("donor");
     } else if (
-      Object.values(storage["ngos"]).indexOf(account) > -1
+      account in storage["ngos"]
     ) {
       //function to display charity page
       routeChange("ngo");
     } else if (
-      Object.values(storage["cooperative_stores"]).indexOf(account) > -1
+      account in storage["cooperative_stores"]
     ) {
       //function to display store page
       routeChange("store");
