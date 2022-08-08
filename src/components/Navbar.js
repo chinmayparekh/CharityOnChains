@@ -8,7 +8,6 @@ import {
   DropdownItem,
   DropdownToggle,
   DropdownMenu,
-  UncontrolledDropdown,
 } from "reactstrap";
 import "../styles/Navbar.css";
 import { getAmt } from "../utils/operation";
@@ -41,6 +40,7 @@ const Navbar = () => {
 
   const onConnectWallet = async () => {
     await connectWallet();
+    getAmt(account);
     const account = await getAccount();
     setAccount(account);
     setUserDD(true);

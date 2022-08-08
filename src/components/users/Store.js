@@ -3,11 +3,6 @@ import { useState } from "react";
 import ItemCards from "./ItemCards";
 
 function Store() {
-
-
-
-
-
   const [state, setState] = useState(false);
   const openModal = () => setState(true);
   const closeModal = () => setState(false);
@@ -50,6 +45,9 @@ function Store() {
       console.log(items);
     }
     console.log(item);
+    setName("");
+    setQuantity("");
+    setPrice("");
     setState(false);
   };
 
