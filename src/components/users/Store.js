@@ -1,5 +1,6 @@
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
+import ItemCards from "./ItemCards";
 function Store() {
   const [state, setState] = useState(false);
   const openModal = () => setState(true);
@@ -8,6 +9,10 @@ function Store() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [items,setItems]=useState([]);
+  const addItem=(item)=>{
+    setItems([...items, item]);
+  }
 
 
   const textStyle = {
@@ -21,32 +26,37 @@ function Store() {
     if (items.name !== "" && items.quantity !== "" && items.price > 0) {
       console.log("Valid");
       textStyle.border = "2px solid green";
+      return true;
     }
     //form is invalid
     else {
       console.log("Invalid");
       hide.display = "inline";
+      return false;
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const items = { name, quantity, price };
-    checkForm(items);
-    console.log(items);
+    let id=items.length;
+    const item = { name, quantity, price, id };
+    if(checkForm(item)){
+      addItem(item);
+      console.log(items);
+    }
+    console.log(item);
     setState(false);
   };
 
   return (
-    <>
-      <h1>Store Page</h1>
-      <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh" }}
-      >
-        <Button variant="primary" onClick={openModal}>
+    <div className="container">
+      <div className="row mx-2 px-2">
+      <h1 className="col-4">Store Page</h1>
+      <div className="offset-4 col-3">
+        <Button variant="primary" onClick={openModal} className="align-self-center">
           Add Item
         </Button>
+      </div>
       </div>
       <Modal show={state} onHide={closeModal}>
         <Modal.Header closeButton>
@@ -88,7 +98,14 @@ function Store() {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+      <div className="col-3">
+      {items.map((item) =>{ 
+        return (
+        <ItemCards key={item.id} name={item.name} price={item.price} quantity={item.quantity} ></ItemCards>
+        )}
+      )}
+      </div>
+    </div>
   );
 }
 
