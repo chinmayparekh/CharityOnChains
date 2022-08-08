@@ -11,10 +11,9 @@ import {
   UncontrolledDropdown,
 } from "reactstrap";
 import "../styles/Navbar.css";
+import { getAmt } from "../utils/operation";
 
 const Navbar = () => {
-
-
   const [account, setAccount] = useState("");
   const [userDD, setUserDD] = useState(false);
   useEffect(() => {
@@ -36,6 +35,7 @@ const Navbar = () => {
     setUserDD(false);
     const storage = await fetchStorage();
     console.log(storage);
+    getAmt(account);
     routeChange("/");
   };
 
@@ -45,24 +45,19 @@ const Navbar = () => {
     setAccount(account);
     setUserDD(true);
     const storage = await fetchStorage();
-    
     if (
-      !(account in storage["donors"])&&
+      !(account in storage["donors"]) &&
       !(account in storage["ngos"]) &&
-      !(account in storage["cooperative_stores"]) 
+      !(account in storage["cooperative_stores"])
     ) {
-      console.log(" ")
+      console.log(" ");
     } else if (account in storage["donors"]) {
       //function to display donor page
       routeChange("donor");
-    } else if (
-      account in storage["ngos"]
-    ) {
+    } else if (account in storage["ngos"]) {
       //function to display charity page
       routeChange("ngo");
-    } else if (
-      account in storage["cooperative_stores"]
-    ) {
+    } else if (account in storage["cooperative_stores"]) {
       //function to display store page
       routeChange("store");
     }
@@ -108,9 +103,14 @@ const Navbar = () => {
           </span>
         </div>
       </nav>
-
     </>
   );
 };
 
 export default Navbar;
+
+// BigNumber {s: 1, e: 7, c: Array(1)}
+// c: [24978978]
+// e: 7
+// s: 1
+// [[Prototype]]: Object

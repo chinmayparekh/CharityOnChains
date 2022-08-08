@@ -9,7 +9,7 @@ export const registerDonor = async (hash) => {
     const op = await contractInstance.methods.register_donor(hash).send();
     await op.confirmation(1);
   } catch (err) {
-    throw err; 
+    throw err;
   }
 };
 
@@ -36,4 +36,11 @@ export const registerStore = async (hash) => {
   } catch (err) {
     throw err;
   }
+};
+
+export const getAmt = function Amt(hash) {
+  tezos.rpc
+    .getBalance(hash)
+    .then((balance) => console.log(balance.toNumber()/1000000))
+    .catch((e) => console.log("Address not found"));
 };
