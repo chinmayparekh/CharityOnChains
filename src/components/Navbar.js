@@ -40,24 +40,30 @@ const Navbar = () => {
 
   const onConnectWallet = async () => {
     await connectWallet();
-    getAmt(account);
+    
     const account = await getAccount();
+    getAmt(account);
     setAccount(account);
     setUserDD(true);
     const storage = await fetchStorage();
+
     if (
-      !(account in storage["donors"]) &&
+      !(account in storage["donors"])&&
       !(account in storage["ngos"]) &&
-      !(account in storage["cooperative_stores"])
+      !(account in storage["cooperative_stores"]) 
     ) {
-      console.log(" ");
+      console.log(" ")
     } else if (account in storage["donors"]) {
       //function to display donor page
       routeChange("donor");
-    } else if (account in storage["ngos"]) {
+    } else if (
+      account in storage["ngos"]
+    ) {
       //function to display charity page
       routeChange("ngo");
-    } else if (account in storage["cooperative_stores"]) {
+    } else if (
+      account in storage["cooperative_stores"]
+    ) {
       //function to display store page
       routeChange("store");
     }

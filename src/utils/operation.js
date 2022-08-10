@@ -4,7 +4,7 @@ import { tezos } from "./tezos";
 export const registerDonor = async (hash) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1MT6xAxL4JvS7q9FTbNV186RABmLsZ5oo2"
+      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
     );
     const op = await contractInstance.methods.register_donor(hash).send();
     await op.confirmation(1);
@@ -17,7 +17,7 @@ export const registerDonor = async (hash) => {
 export const registerNGO = async (hash) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1MT6xAxL4JvS7q9FTbNV186RABmLsZ5oo2"
+      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
     );
     const op = await contractInstance.methods.register_ngo(hash).send();
     await op.confirmation(1);
@@ -29,7 +29,7 @@ export const registerNGO = async (hash) => {
 export const registerStore = async (hash) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1MT6xAxL4JvS7q9FTbNV186RABmLsZ5oo2"
+      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
     );
     const op = await contractInstance.methods.register_store(hash).send();
     await op.confirmation(1);
