@@ -13,6 +13,9 @@ import store from "../images/store.png";
 import happy from "../images/happy.svg";
 import wheelchair from "../images/wheelchair.svg";
 import banner from "../images/banner.svg";
+import hand from "../images/hand.svg";
+import shop from "../images/shop.svg";
+import promote from "../images/promote.svg";
 
 function Home() {
   let navigate = useNavigate();
@@ -83,19 +86,18 @@ function Home() {
 
       <div className="container">
         <div id="Page2">
-          <div className="row h-500 py-5 info-row">
-            <div className="col-12 col-sm-6">
+         <br/>
+         <br/>
 
-            </div>
-          </div>
           {isRegistered===""?
           <div className="row mb-3 layout-row">
-            <div className="col-12 col-sm-4 p-2 h-auto">
+            <div className="col-12 col-sm-4 p-2">
+               <br/>
               <Layout
                 id="NGO"
                 title="Register yourself as a NGO"
                 content="To promote social or political change on a broad scale through our platform. "
-                image={ngo}
+                image={promote}
                 modalTitle="Register as NGO"
                 modal1="NGO Name"
                 modal2="NGO Type"
@@ -119,7 +121,7 @@ function Home() {
                 id="Donor"
                 title="Register yourself as a Donor"
                 content="Giving is not just make a donation, it's about making difference."
-                image={donors}
+                image={hand}
                 modalTitle="Register as a Donor"
                 modal1="Name"
                 modal2="Aadhar Card"
@@ -143,7 +145,7 @@ function Home() {
                 id="Store"
                 title="Register yourself as a Store"
                 content="Help NGOs by providing your equipement at nominal prices."
-                image={store}
+                image={shop}
                 modalTitle="Register as a Store"
                 modal1="Name"
                 modal2="GST Number"
