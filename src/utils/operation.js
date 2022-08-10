@@ -38,6 +38,20 @@ export const registerStore = async (hash) => {
   }
 };
 
+export const addItems = async(hash,name) => {
+  try{
+    const contractInstance = await tezos.wallet.at(
+      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
+    );
+    const op = await contractInstance.methods.add_items(hash,name).send();
+    await op.confirmation(1);
+  }
+  catch (err) {
+    throw err;
+  }
+
+}
+
 export const getAmt = function Amt(hash) {
   tezos.rpc
     .getBalance(hash)

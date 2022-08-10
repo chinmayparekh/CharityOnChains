@@ -1,8 +1,16 @@
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 import ItemCards from "./ItemCards";
+import {addItems} from "../../utils/operation";
+import {addData1} from "../../utils/ipfs/ipfs_add1";
+import {fetchData} from "../../utils/ipfs/ipfs_fetch";
+import { fetchStorage } from "../../utils/tzkt";
+import {getAccount} from "../../utils/wallet";
+
+
 
 function Store() {
+  
   const [state, setState] = useState(false);
   const openModal = () => setState(true);
   const closeModal = () => setState(false);
@@ -10,10 +18,8 @@ function Store() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
-  const [items, setItems] = useState([]);
-  const addItem = (item) => {
-    setItems([...items, item]);
-  };
+  let items = []
+
 
   const textStyle = {
     border: "2px solid red",
@@ -36,15 +42,38 @@ function Store() {
     }
   };
 
+  const LoadItems = async ()=>{
+    const account = await getAccount();
+    const storage = await fetchStorage();
+    const it = storage["store_items"][account]
+    console.log(it)
+    for(let i=0;i<it.length;i++)
+    {
+      const itam = await fetchData(it[i].hash);
+      items.push(itam)
+    }
+    console.log(items)
+    
+  }
+
+  LoadItems();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let id = items.length;
     const item = { name, quantity, price, id };
+    const name1 = item.name;
     if (checkForm(item)) {
-      addItem(item);
+      //items.push(item)
+
+      const promise = addData1(item);
+
+      promise.then((hash)=>{
+        addItems(hash,name1);
+      })
       console.log(items);
     }
-    console.log(item);
+    
     setName("");
     setQuantity("");
     setPrice("");
@@ -107,15 +136,16 @@ function Store() {
       </Modal>
       <div className="col-3">
         {items.map((item) => {
-          return (
-            <ItemCards
-              key={item.id}
-              name={item.name}
-              price={item.price}
-              quantity={item.quantity}
-            ></ItemCards>
-          );
-        })}
+               
+               return(<table><tbody><tr key={item.id}>
+               <td>{item.name}</td>
+               <td>{item.quantity}</td>
+               <td>{item.price}</td>
+           </tr></tbody></table>);
+       
+          
+        })} 
+     
       </div>
     </div>
   );
