@@ -1,12 +1,12 @@
 // TODO 6 - Call buy_ticket entrypoint in the Lottery contract
 import { tezos } from "./tezos";
 
-export const registerDonor = async (hash) => {
+export const registerDonor = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
-    const op = await contractInstance.methods.register_donor(hash).send();
+    const op = await contractInstance.methods.register_donor(obj.field1, obj.field2, obj.field3, obj.field4, obj.field5).send();
     await op.confirmation(1);
   } catch (err) {
     throw err;
@@ -14,47 +14,72 @@ export const registerDonor = async (hash) => {
 };
 
 // TODO 10 - Call end_game entrypoint in the Lottery contract
-export const registerNGO = async (hash) => {
+export const registerNGO = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
-    const op = await contractInstance.methods.register_ngo(hash).send();
+    const op = await contractInstance.methods
+      .register_ngo(obj.field1, obj.field2, obj.field3, obj.field4, obj.field5)
+      .send();
     await op.confirmation(1);
   } catch (err) {
     throw err;
   }
 };
 
-export const registerStore = async (hash) => {
+export const registerStore = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
-    const op = await contractInstance.methods.register_store(hash).send();
+    const op = await contractInstance.methods.register_store(obj.field1, obj.field2, obj.field3, obj.field4, obj.field5).send();
     await op.confirmation(1);
   } catch (err) {
     throw err;
   }
 };
 
-export const addItems = async(hash,name) => {
-  try{
+export const addItems = async (item_obj) => {
+  try {
     const contractInstance = await tezos.wallet.at(
-      "KT1Q6hCw3q4RTaEoSrteCRf3sNJ8UvwriKQS"
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
-    const op = await contractInstance.methods.add_items(hash,name).send();
+    const op = await contractInstance.methods.add_items(item_obj.name,item_obj.price,item_obj.valid).send();
     await op.confirmation(1);
-  }
-  catch (err) {
+  } catch (err) {
     throw err;
   }
+};
 
-}
+export const deleteItem = async (address, name) => {
+  try {
+    const contractInstance = await tezos.wallet.at(
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+    );
+    const op = await contractInstance.methods.delete_items(address, name).send();
+    await op.confirmation(1);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const sendFunds = async (address, cost) => {
+  try {
+    const contractInstance = await tezos.wallet.at(
+      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+    );
+    const op = await contractInstance.methods.send_funds(address).send(cost);
+    await op.confirmation(1);
+  } catch (err) {
+    throw err;
+  }
+};
 
 export const getAmt = function Amt(hash) {
   tezos.rpc
     .getBalance(hash)
-    .then((balance) => console.log(balance.toNumber()/1000000))
+    .then((balance) => console.log(balance.toNumber() / 1000000))
     .catch((e) => console.log("Address not found"));
 };
+

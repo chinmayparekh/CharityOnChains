@@ -36,7 +36,8 @@ const Layout = (props) => {
       console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
-      addData(data, props.register);
+      //addData(data, props.register);
+      props.register(data);
     }
     //form is invalid
     else {

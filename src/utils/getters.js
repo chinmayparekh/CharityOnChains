@@ -1,0 +1,2 @@
+import { fetchStorage } from "./tzkt";
+

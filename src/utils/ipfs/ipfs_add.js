@@ -1,14 +1,15 @@
 const IPFS = require("ipfs-mini");
 const ipfs = new IPFS({
-  host: "ipfs.infura.io",
+  host: "gateway.pinata.cloud",
   port: 5001,
   protocol: "https",
 });
 
-export function addData(data,register) {
+export function addData(data, register) {
+  console.log("adding data", data);
   ipfs.addJSON(data).then((result) => {
     register(result);
-});
+  });
 }
 
 export default addData;

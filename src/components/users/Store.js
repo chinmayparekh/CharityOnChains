@@ -1,25 +1,22 @@
 import { Modal, Button } from "react-bootstrap";
+
 import { useState } from "react";
 import ItemCards from "./ItemCards";
-import {addItems} from "../../utils/operation";
-import {addData1} from "../../utils/ipfs/ipfs_add1";
-import {fetchData} from "../../utils/ipfs/ipfs_fetch";
+import { addItems } from "../../utils/operation";
+import { addData1 } from "../../utils/ipfs/ipfs_add1";
+import { fetchData } from "../../utils/ipfs/ipfs_fetch";
 import { fetchStorage } from "../../utils/tzkt";
-import {getAccount} from "../../utils/wallet";
-
-
-
+import { getAccount } from "../../utils/wallet";
 function Store() {
-  
   const [state, setState] = useState(false);
   const openModal = () => setState(true);
   const closeModal = () => setState(false);
 
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [price, setPrice] = useState("");
-  let items = []
-
+  const [price, setPrice] = useState(1);
+  const [valid, setValid] = useState(1);
+  let items = [];
 
   const textStyle = {
     border: "2px solid red",
@@ -42,41 +39,36 @@ function Store() {
     }
   };
 
-  const LoadItems = async ()=>{
+  const LoadItems = async () => {
     const account = await getAccount();
     const storage = await fetchStorage();
-    const it = storage["store_items"][account]
-    console.log(it)
-    for(let i=0;i<it.length;i++)
-    {
-      const itam = await fetchData(it[i].hash);
-      items.push(itam)
-    }
-    console.log(items)
+    console.log(storage);
+    const it = storage["store_items"][account];
+    console.log(it);
+    items.push(it);
+    console.log(items);
     
-  }
+  };
 
   LoadItems();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let id = items.length;
-    const item = { name, quantity, price, id };
+    const item = { name, quantity, price, id, valid };
     const name1 = item.name;
     if (checkForm(item)) {
       //items.push(item)
 
-      const promise = addData1(item);
+      addItems(item);
 
-      promise.then((hash)=>{
-        addItems(hash,name1);
-      })
       console.log(items);
+      console.log("**************");
     }
-    
+
     setName("");
     setQuantity("");
-    setPrice("");
+    setPrice(0);
     setState(false);
   };
 
@@ -136,16 +128,18 @@ function Store() {
       </Modal>
       <div className="col-3">
         {items.map((item) => {
-               
-               return(<table><tbody><tr key={item.id}>
-               <td>{item.name}</td>
-               <td>{item.quantity}</td>
-               <td>{item.price}</td>
-           </tr></tbody></table>);
-       
-          
-        })} 
-     
+          return (
+            <table>
+              <tbody>
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.price}</td>
+                </tr>
+              </tbody>
+            </table>
+          );
+        })}
       </div>
     </div>
   );
