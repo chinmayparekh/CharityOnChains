@@ -1,5 +1,6 @@
 import { fetchStorage } from "../../utils/tzkt";
 import { sendFunds, deleteItem } from "../../utils/operation";
+import "./NGO.css";
 function NGO() {
   //console.log(all_items)
   const LoadData = async () => {
@@ -21,7 +22,15 @@ function NGO() {
   BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
   return (
     <>
-      <h1>NGO Page</h1>
+       <main>
+         <h1>Choose a Charity to Donate To</h1>
+         <section className="glass">
+            <div>
+            </div>
+         </section>
+      </main>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
     </>
   );
 }
