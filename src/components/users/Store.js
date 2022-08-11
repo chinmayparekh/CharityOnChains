@@ -8,6 +8,7 @@ import { fetchData } from "../../utils/ipfs/ipfs_fetch";
 import { fetchStorage } from "../../utils/tzkt";
 import { getAccount } from "../../utils/wallet";
 import shopping from "../images/shopping.svg";
+import LoadItem from "./LoadItem"
 import StoreCard from "./StoreCard"
 import "./Store.css"
 
@@ -20,17 +21,6 @@ function Store() {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState(1);
   const [valid, setValid] = useState(1);
-  let items = [];
-  let newarray = [
-    {name: 'asdasd', price: '1', valid: '1'},
-    {name: 'q', price: '100', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
-    {name: 'q', price: '1', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
-  ];
-
   const textStyle = {
     border: "2px solid red",
   };
@@ -52,31 +42,16 @@ function Store() {
     }
   };
 
-  const LoadItems = async () => {
-    const account = await getAccount();
-    const storage = await fetchStorage();
-    console.log(storage);
-    const it = storage["store_items"][account];
-    console.log(it);
-    items.push(it);
-    console.log("items",typeof(items));
-    console.log("new ", typeof(newarray));
-    console.log("new ", newarray);
-  };
-
-  LoadItems();
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id = items.length;
-    const item = { name, quantity, price, id, valid };
+    const item = { name, price, valid };
     const name1 = item.name;
     if (checkForm(item)) {
       //items.push(item)
 
       addItems(item);
 
-      console.log(items);
+      // console.log(items);
       console.log("**************");
     }
 
@@ -98,11 +73,7 @@ function Store() {
         <div className="containerdiv">
           
           <div className="containerdiv">
-            {newarray.map(item => {
-              return (
-                <StoreCard price={item.price} name={item.name}/>
-              )
-            })}
+            <LoadItem/>
           </div>
         </div>
         <div className="image">
@@ -141,7 +112,7 @@ function Store() {
                 onChange={(e) => setQuantity(e.target.value)}
                 required
               /> */}
-              <label>Price in Mutez </label>
+              <label>Price in Mutez &#42793; </label>
               <input
                 type="number"
                 value={price}
@@ -160,22 +131,7 @@ function Store() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <div className="col-3">
-        {items.map((item) => {
-          return (
-            <table>
-              <tbody>
-                <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.price}</td>
-                </tr>
-              </tbody>
-            </table>
-          );
-        })}
-      </div>
-    {/* </div> */}
+
     </>
   );
 }

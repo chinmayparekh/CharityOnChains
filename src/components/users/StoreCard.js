@@ -12,7 +12,7 @@ function StoreCard(props){
         <img src={cardimg} alt="cardimg" height="200px"/>
       </div>
       <div className="cardFooter">
-        <p className="price mt-3">Price: ₹{props.price}</p>
+        <p className="price mt-3">Price: &#42793; {props.price/1e6}</p>
         {/* <button className="buy m-4">Buy Now</button> */}
       </div>
     </div>
