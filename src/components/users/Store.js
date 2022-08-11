@@ -7,6 +7,10 @@ import { addData1 } from "../../utils/ipfs/ipfs_add1";
 import { fetchData } from "../../utils/ipfs/ipfs_fetch";
 import { fetchStorage } from "../../utils/tzkt";
 import { getAccount } from "../../utils/wallet";
+import shopping from "../images/shopping.svg";
+import StoreCard from "./StoreCard"
+import "./Store.css"
+
 function Store() {
   const [state, setState] = useState(false);
   const openModal = () => setState(true);
@@ -17,6 +21,15 @@ function Store() {
   const [price, setPrice] = useState(1);
   const [valid, setValid] = useState(1);
   let items = [];
+  let newarray = [
+    {name: 'asdasd', price: '1', valid: '1'},
+    {name: 'q', price: '100', valid: '1'},
+    {name: 's', price: '1', valid: '1'},
+    {name: 'a', price: '1', valid: '1'},
+    {name: 'q', price: '1', valid: '1'},
+    {name: 's', price: '1', valid: '1'},
+    {name: 'a', price: '1', valid: '1'},
+  ];
 
   const textStyle = {
     border: "2px solid red",
@@ -26,7 +39,7 @@ function Store() {
   };
   const checkForm = (items) => {
     //form is valid
-    if (items.name !== "" && items.quantity !== "" && items.price > 0) {
+    if (items.name !== ""&& items.price > 0) {
       console.log("Valid");
       textStyle.border = "2px solid green";
       return true;
@@ -46,8 +59,9 @@ function Store() {
     const it = storage["store_items"][account];
     console.log(it);
     items.push(it);
-    console.log(items);
-    
+    console.log("items",typeof(items));
+    console.log("new ", typeof(newarray));
+    console.log("new ", newarray);
   };
 
   LoadItems();
@@ -73,19 +87,39 @@ function Store() {
   };
 
   return (
-    <div className="container">
-      <div className="row mx-2 px-2">
-        <h1 className="col-4">Store Page</h1>
-        <div className="offset-4 col-3">
-          <Button
-            variant="primary"
-            onClick={openModal}
-            className="align-self-center"
-          >
-            Add Item
-          </Button>
+    // <div className="container">
+    <>
+      <br/>
+      <br/>
+      <br/>
+      
+         
+      <div className="bigdiv">
+        <div className="containerdiv">
+          
+          <div className="containerdiv">
+            {newarray.map(item => {
+              return (
+                <StoreCard price={item.price} name={item.name}/>
+              )
+            })}
+          </div>
+        </div>
+        <div className="image">
+          <img src={shopping} alt="shopping" height="400px"/>
+          {/* <br/> */}
+          <h1 className="mt-5">These are the Items Available in Your Store</h1>
+          <button
+              onClick={openModal}
+              className="addItem"
+            >
+              Add Item
+            </button>
         </div>
       </div>
+
+
+
       <Modal show={state} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>New Item</Modal.Title>
@@ -141,7 +175,8 @@ function Store() {
           );
         })}
       </div>
-    </div>
+    {/* </div> */}
+    </>
   );
 }
 

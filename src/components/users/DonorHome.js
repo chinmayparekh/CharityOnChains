@@ -1,21 +1,21 @@
 import { fetchStorage } from "../../utils/tzkt";
 import { sendFunds, deleteItem } from "../../utils/operation";
 import "./Store.css";
-import ngoCard from "./ngoCard";
+import DonorCard from "./DonorCard";
 import shopping from "../images/shopping.svg";
 
 
-function NGO() {
+function DonorHome() {
   //console.log(all_items)
   let storage = {};
   let newarray = [
-    {name: 'asdasd', price: '1', valid: '1'},
-    {name: 'q', price: '100', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
-    {name: 'q', price: '1', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
+    {name: 'Red Cross'},
+    {name: 'Humanity'},
+    {name: 'Charity Name'},
+    {name: 'Charity Name'},
+    {name: 'Charity Name'},
+    {name: 'Charity Name'},
+    {name: 'Charity Name'},
   ];
   const LoadData = async () => {
     let items = [];
@@ -47,15 +47,15 @@ function NGO() {
           <div className="containerdiv">
             {newarray.map(item => {
               return (
-                <ngoCard price={item.price} name={item.name}/>
+                <DonorCard name={item.name}/>
               )
             })}
           </div>
         </div>
         <div className="image">
+          <h1 className="mt-5">Here are the List of NGOs</h1>
           <img src={shopping} alt="shopping" height="400px"/>
           {/* <br/> */}
-          <h1 className="mt-5">These are the Items Available in the Store</h1>
           {/* <button
               onClick={openModal}
               className="addItem"
@@ -69,4 +69,4 @@ function NGO() {
   );
 }
 
-export default NGO;
+export default DonorHome;

@@ -4,7 +4,7 @@ import cardimg from "../images/cardimg.svg"
 import "./Store.css"
 
 
-function ngoCard(props){
+function StoreCard(props){
 	return (
     <div className="mycard m-4">
       <h2 className="cardname">{props.name}</h2>
@@ -13,7 +13,7 @@ function ngoCard(props){
       </div>
       <div className="cardFooter">
         <p className="price mt-3">Price: ₹{props.price}</p>
-        <button className="buy m-4">Buy Now</button>
+        {/* <button className="buy m-4">Buy Now</button> */}
       </div>
     </div>
   )
@@ -37,4 +37,4 @@ function ngoCard(props){
 
 }
 
-export default ngoCard;
+export default StoreCard;

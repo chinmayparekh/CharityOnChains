@@ -6,6 +6,7 @@ import Connect from "./components/pages/Connect";
 import Footer from "./components/Footer";
 import Donor from "./components/users/Donor";
 import NGO from "./components/users/NGO";
+import DonorHome from "./components/users/DonorHome";
 import Store from "./components/users/Store";
 import {fetchData} from "./utils/ipfs/ipfs_fetch";
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/donor" element={<Donor />}></Route>
           <Route path="/ngo" element={<NGO />}></Route>
           <Route path="/store" element={<Store />}></Route>
+          <Route path="/donorhome" element={<DonorHome />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
