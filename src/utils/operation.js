@@ -77,9 +77,10 @@ export const sendFunds = async (address, cost) => {
 };
 
 export const getAmt = function Amt(hash) {
-  tezos.rpc
+  const bal=tezos.rpc
     .getBalance(hash)
-    .then((balance) => console.log(balance.toNumber() / 1000000))
+    .then((balance) => {return balance.toNumber()/1e6})
     .catch((e) => console.log("Address not found"));
+    return bal;
 };
 

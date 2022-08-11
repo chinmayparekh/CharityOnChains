@@ -209,7 +209,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
-    color: #080808;
+    color: #0f1219;
 }
 
 .description {
@@ -511,10 +511,22 @@
 }
 
 .title {
-    font-size: 28px;
-    color: #f1356d;
+   font-size: 40px;
+   color: #0f1219;
     margin: 0 auto;
-}
+   position: relative;
+    left:90px;
+   }
+   
+.titlediv{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   
+.font{
+      font-family: 'Montserrat';
+   }
 
 .register input {
     width: 100%;
@@ -546,15 +558,19 @@ input:valid {
     background-color: #ddffdd;
 }
 
-form:valid {
-    border: 5px solid #259e25;
+#sector{
+   width:100%;
 }
+
+/* form:valid {
+    border: 5px solid #259e25;
+} */
 
 input:required {
-    border-color: #800000;
+    /* border-color: #800000; */
     border-width: 3px;
 }
-
+/* 
 input:required:invalid {
     border-color: #c00000;
 }
@@ -562,7 +578,7 @@ input:required:invalid {
 input:required:valid {
     border: 5px solid #185e18;
 
-}
+} */
 
 .ngo-banner {
     height: 30vw;

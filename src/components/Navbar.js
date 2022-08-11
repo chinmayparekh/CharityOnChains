@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import {List,ListInlineItem} from 'reactstrap';
 import { connectWallet, getAccount, disconnectWallet } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
@@ -15,13 +16,16 @@ import { getAmt } from "../utils/operation";
 const Navbar = () => {
   const [account, setAccount] = useState("");
   const [userDD, setUserDD] = useState(false);
+  const [balance, setBalance] = useState(-1.00);
   useEffect(() => {
     (async () => {
       // TODO 5.b - Get the active account
       const account = await getAccount();
+      const balance=await getAmt(account);
+      setBalance(balance);
       setAccount(account);
     })();
-  }, []);
+  });
 
   let navigate = useNavigate();
   const routeChange = (path) => {
@@ -32,6 +36,7 @@ const Navbar = () => {
     await disconnectWallet();
     setAccount("");
     setUserDD(false);
+    setBalance(0.00);
     const storage = await fetchStorage();
     console.log(storage);
     getAmt(account);
@@ -42,7 +47,8 @@ const Navbar = () => {
     await connectWallet();
     
     const account = await getAccount();
-    getAmt(account);
+    setBalance(getAmt(account));
+    console.log(balance);
     setAccount(account);
     setUserDD(true);
     const storage = await fetchStorage();
@@ -68,6 +74,7 @@ const Navbar = () => {
       routeChange("store");
     }
   };
+
   return (
     <>
       <nav className="navbar navbar-dark sticky-top">
@@ -87,13 +94,14 @@ const Navbar = () => {
                 {"Connect Wallet"}
               </button>
             ) : (
-              <Dropdown
+              <List type="inline">
+                <ListInlineItem>&#42793; {balance}</ListInlineItem>
+              <ListInlineItem><Dropdown
                 isOpen={userDD}
                 toggle={() => setUserDD(!userDD)}
                 direction="down"
                 size="50px"
-                inNavbar={true}
-              >
+                inNavbar={true}>
                 <DropdownToggle caret>{account}</DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem onClick={onConnectWallet}>
@@ -104,7 +112,8 @@ const Navbar = () => {
                     Logout
                   </DropdownItem>
                 </DropdownMenu>
-              </Dropdown>
+              </Dropdown></ListInlineItem>
+              </List>
             )}
           </span>
         </div>

@@ -100,13 +100,13 @@ function Store() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              <label>Quantity </label>
+              {/* <label>Quantity </label>
               <input
                 type="text"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
                 required
-              />
+              /> */}
               <label>Price in Mutez </label>
               <input
                 type="number"

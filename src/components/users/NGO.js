@@ -1,5 +1,6 @@
 import { fetchStorage } from "../../utils/tzkt";
 import { sendFunds, deleteItem } from "../../utils/operation";
+import "./NGO.css";
 function NGO() {
   //console.log(all_items)
   let storage = {};
@@ -24,7 +25,15 @@ function NGO() {
   console.log()
   return (
     <>
-      <h1>NGO Page</h1>
+       <main>
+         <h1>Choose a Charity to Donate To</h1>
+         <section className="glass">
+            <div>
+            </div>
+         </section>
+      </main>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
     </>
   );
 }
