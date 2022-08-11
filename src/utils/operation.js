@@ -69,7 +69,7 @@ export const sendFunds = async (address, cost) => {
     const contractInstance = await tezos.wallet.at(
       "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
-    const op = await contractInstance.methods.send_funds(address).send(cost);
+    const op = await contractInstance.methods.send_funds(address).send({amount:cost,mutez:true});
     await op.confirmation(1);
   } catch (err) {
     throw err;

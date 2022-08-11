@@ -2,9 +2,10 @@ import { fetchStorage } from "../../utils/tzkt";
 import { sendFunds, deleteItem } from "../../utils/operation";
 function NGO() {
   //console.log(all_items)
+  let storage = {};
   const LoadData = async () => {
     let items = [];
-    const storage = await fetchStorage();
+    storage = await fetchStorage();
     console.log(storage);
     const it = storage["store_items"];
     console.log(it);
@@ -16,9 +17,11 @@ function NGO() {
   LoadData();
   const BuyItem = async (price, address, name) => {
     await sendFunds(address, price);
-    // await deleteItem(address, name);
+    await deleteItem(address, name);
   };
   BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
+
+  console.log()
   return (
     <>
       <h1>NGO Page</h1>
