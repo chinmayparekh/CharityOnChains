@@ -67,7 +67,7 @@ function NGO() {
 
   // const BuyItem = async (price, address, name) => {
   //   await sendFunds(address, price);
-  //   await deleteItem(address, name);
+  //   await deleteItem(name,address);
   // };
   // BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
   return (

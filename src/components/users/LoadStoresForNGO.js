@@ -17,9 +17,10 @@ class LoadStoresForNGO extends Component{
 		let stores=[];
 		for(const key in it){
 			for( const j in it[key]){
-				stores.push({"address": key,...it[key][j]})
+				console.log(it[key][j].valid)
+				console.log(it[key][j]);
+				if(it[key][j].valid==="1") stores.push({"address": key,...it[key][j]})
 			}
-			// console.log(stores);
 		}
 		this.setState({stores: stores, loaded: true});
 		}

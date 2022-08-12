@@ -48,11 +48,12 @@ export const addItems = async (item_obj) => {
     const op = await contractInstance.methods.add_items(item_obj.name,item_obj.price,item_obj.valid).send();
     await op.confirmation(1);
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
 
-export const deleteItem = async (address, name) => {
+export const deleteItem = async (name,address) => {
   try {
     const contractInstance = await tezos.wallet.at(
       "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
@@ -62,7 +63,7 @@ export const deleteItem = async (address, name) => {
     console.log("middle delete funds name",name);
 
 
-    const op = await contractInstance.methods.delete_items(address, name).send();
+    const op = await contractInstance.methods.delete_items(name,address).send();
     await op.confirmation(1);
   } catch (err) {
     throw err;
