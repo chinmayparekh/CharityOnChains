@@ -4,6 +4,7 @@ import { addItems } from "../../utils/operation";
 import shopping from "../images/shopping.svg";
 import LoadItem from "./LoadItem";
 import "./Store.css";
+import {fetchDetails} from "./fetchDetails";
 
 function Store() {
   const [state, setState] = useState(false);
@@ -11,6 +12,10 @@ function Store() {
   const closeModal = () => setState(false);
 
   const [name, setName] = useState("");
+  const [details,setDetails]=useState(null);
+
+  fetchDetails("cooperative_stores").then((response)=>setDetails(response))
+  
   const [price, setPrice] = useState(1);
   const [valid, setValid] = useState(1);
   const textStyle = {
@@ -68,11 +73,11 @@ function Store() {
           <div className="yourDetails m-3">
             <h1 className="mt-5">Your Details</h1>
             <div className="details">
-              <p>Name</p>
-              <p>GST </p>
-              <p>Service Provided</p>
-              <p>Email</p>
-              <p>Location</p>
+              <p>Name: {details && details.name}</p>
+              <p>GST: {details && details.phone}</p>
+              <p>Service Provided: {details && details.service} </p>
+              <p>Email: {details && details.email}</p>
+              <p>Location: {details && details.location}</p>
             </div>
           </div>
         </div>

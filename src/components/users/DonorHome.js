@@ -1,8 +1,13 @@
+import {useState} from "react";
 import shopping from "../images/shopping.svg";
 import LoadNGOForDonor from "./LoadNGOforDonor";
 import "./Store.css";
+import fetchDetails from "./fetchDetails";
 
 function DonorHome() {
+  const [details,setDetails]=useState(null);
+
+  fetchDetails("donors").then((response)=>setDetails(response))
   return (
     <>
       <br />
@@ -20,11 +25,11 @@ function DonorHome() {
           <div className="yourDetails m-3">
             <h1 className="mt-5">Your Details</h1>
             <div className="details">
-              <p>Name</p>
-              <p>Aadhar</p>
-              <p>Phone</p>
-              <p>Email</p>
-              <p>Country</p>
+              <p>Name: {details && details.name}</p>
+              <p>Aadhar: {details && details.aadhar}</p>
+              <p>Phone: {details && details.phone}</p>
+              <p>Email: {details && details.email}</p>
+              <p>Country: {details && details.country}</p>
             </div>
           </div>
         </div>

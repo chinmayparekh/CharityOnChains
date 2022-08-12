@@ -1,8 +1,12 @@
 import "./Store.css";
+import {useState } from 'react';
 import shopping from "../images/shopping.svg";
 import LoadStoresForNGO from "./LoadStoresForNGO";
-
+import fetchDetails from "./fetchDetails";
 function NGO() {
+  const [details,setDetails]=useState(null);
+
+  fetchDetails("ngos").then((response)=>setDetails(response))
   return (
     <>
       <br />
@@ -20,12 +24,11 @@ function NGO() {
           <div className="yourDetails m-3">
             <h1 className="mt-5">Your Details</h1>
             <div className="details">
-              <p>Name</p>
-              <p>Sector</p>
-              <p>Type</p>
-              <p>Sector</p>
-              <p>License</p>
-              <p>Email</p>
+              <p>Name: {details && details.name}</p>
+              <p>Sector: {details && details.sector}</p>
+              <p>Type: {details && details.sector}</p>
+              <p>License: {details && details.license}</p>
+              <p>Email: {details && details.email}</p>
             </div>
           </div>
         </div>
