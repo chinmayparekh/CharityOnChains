@@ -28,3 +28,30 @@
 .nav-brand :hover {
    color: #263141;
 }
+
+.mybuttonnew {
+   position: relative;
+   /* top:10px;
+   left:100px; */
+   background-color: #263141;
+   color: #00dae4;
+   border: 2px solid white;
+   border-radius: 10px;
+   padding: 10px;
+   min-height: 20px;
+   min-width: 100px;
+   transition: 0.7s;
+   position:relative;
+   left:50px;
+}
+
+.mybuttonnew:hover {
+   background-color: #00dae4;
+   color:black;
+   transition: 0.7s;
+}
+
+.please{
+   display:flex;
+   position:relative;
+}

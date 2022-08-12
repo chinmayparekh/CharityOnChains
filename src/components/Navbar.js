@@ -79,7 +79,7 @@ const Navbar = () => {
           </a>
           <ul className="navbar-nav mr-auto"></ul>
 
-          <span className="navbar-text">
+          <span className="navbar-text please">
             {account === "" ? (
               <button
                 onClick={onConnectWallet}
@@ -113,8 +113,8 @@ const Navbar = () => {
                 </ListInlineItem>
               </List>
             )}
+            <button className="mybuttonnew pullright" onClick={()=> routeChange("/about")}>About us</button>
           </span>
-          <a>About us</a>
         </div>
       </nav>
     </>
