@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardHeader, CardText } from "reactstrap";
 import cardimg from "../images/cardimg.svg";
 import "./Store.css";
 
@@ -16,19 +15,6 @@ function StoreCard(props) {
       </div>
     </div>
   );
-
-  // <div>
-  // <Card className="text-center">
-  //   <CardHeader color="dark">
-  //     {props.name}
-  //   </CardHeader>
-  //   <CardBody>
-  //     <ul>
-  // 			<li>Price: {props.price}</li>
-  // 		</ul>
-  //   </CardBody>
-  // </Card>
-  // </div>)
 }
 
 export default StoreCard;

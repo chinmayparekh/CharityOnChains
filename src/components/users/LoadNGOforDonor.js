@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { fetchStorage } from "../../utils/tzkt";
 import DonorCard from "./DonorCard";
 class LoadNGOForDonor extends Component {

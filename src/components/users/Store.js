@@ -1,15 +1,8 @@
-import { Modal, Button } from "react-bootstrap";
-
 import { useState } from "react";
-import ItemCards from "./ItemCards";
+import { Modal, Button } from "react-bootstrap";
 import { addItems } from "../../utils/operation";
-import { addData1 } from "../../utils/ipfs/ipfs_add1";
-import { fetchData } from "../../utils/ipfs/ipfs_fetch";
-import { fetchStorage } from "../../utils/tzkt";
-import { getAccount } from "../../utils/wallet";
 import shopping from "../images/shopping.svg";
 import LoadItem from "./LoadItem";
-import StoreCard from "./StoreCard";
 import "./Store.css";
 
 function Store() {
@@ -18,7 +11,6 @@ function Store() {
   const closeModal = () => setState(false);
 
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState(1);
   const [valid, setValid] = useState(1);
   const textStyle = {
@@ -45,18 +37,10 @@ function Store() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const item = { name, price, valid };
-    const name1 = item.name;
     if (checkForm(item)) {
-      //items.push(item)
-
       addItems(item);
-
-      // console.log(items);
-      console.log("**************");
     }
-
     setName("");
-    setQuantity("");
     setPrice(0);
     setState(false);
   };
@@ -98,13 +82,6 @@ function Store() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              {/* <label>Quantity </label>
-              <input
-                type="text"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                required
-              /> */}
               <label>Price in Mutez &#42793; </label>
               <input
                 type="number"

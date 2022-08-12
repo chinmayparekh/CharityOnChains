@@ -1,7 +1,5 @@
 import "./Donor.css";
 import {useState} from 'react';
-import fatherhood from "../images/fatherhood.svg";
-import Progress from "reactstrap";
 import { useLocation } from "react-router-dom";
 import {sendFunds} from "../../utils/operation"
 
@@ -76,27 +74,27 @@ function Donor(props) {
                 <div className="socials mt-2">
                   {/* <span className="socialText">Share</span> */}
                   <li class="list-inline-item">
-                    <a href="#" title="twitter">
+                    <a href="/" title="twitter">
                       <i class="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="#" title="facebook">
+                    <a href="/" title="facebook">
                       <i class="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="#" title="instagram">
+                    <a href="/" title="instagram">
                       <i class="fa fa-instagram"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="#" title="pinterest">
+                    <a href="/" title="pinterest">
                       <i class="fa fa-pinterest"></i>
                     </a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="#" title="vimeo">
+                    <a href="/" title="vimeo">
                       <i class="fa fa-vimeo"></i>
                     </a>
                   </li>

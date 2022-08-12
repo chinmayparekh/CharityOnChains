@@ -48,7 +48,6 @@ const Navbar = () => {
 
     const account = await getAccount();
     setBalance(getAmt(account));
-    console.log(balance);
     setAccount(account);
     setUserDD(true);
     const storage = await fetchStorage();

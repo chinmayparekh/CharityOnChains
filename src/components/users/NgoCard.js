@@ -1,8 +1,6 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardHeader, CardText } from "reactstrap";
 import cardimg from "../images/cardimg.svg";
 import "./Store.css";
-import { NGO } from "./NGO";
 import { sendFunds, deleteItem } from "../../utils/operation";
 
 function NgoCard(props) {

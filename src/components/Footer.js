@@ -29,27 +29,27 @@ const Footer = () => {
             </p>
             <ul className="list-inline mt-4">
               <li className="list-inline-item">
-                <a href="#" target="_blank" title="twitter">
+                <a href="/" target="_blank" title="twitter">
                   <i className="fa fa-twitter"></i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a href="#" target="_blank" title="facebook">
+                <a href="/" target="_blank" title="facebook">
                   <i className="fa fa-facebook"></i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a href="#" target="_blank" title="instagram">
+                <a href="/" target="_blank" title="instagram">
                   <i className="fa fa-instagram"></i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a href="#" target="_blank" title="pinterest">
+                <a href="/" target="_blank" title="pinterest">
                   <i className="fa fa-pinterest"></i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a href="#" target="_blank" title="vimeo">
+                <a href="/" target="_blank" title="vimeo">
                   <i className="fa fa-vimeo"></i>
                 </a>
               </li>
@@ -59,22 +59,22 @@ const Footer = () => {
             <h6 className="text-uppercase font-weight-bold mb-4">Contact Us</h6>
             <ul className="list-unstyled mb-0">
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Work For Us
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Make a Complaint
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Contact
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Our Blog
                 </a>
               </li>
@@ -84,22 +84,17 @@ const Footer = () => {
             <h6 className="text-uppercase font-weight-bold mb-4">Company</h6>
             <ul className="list-unstyled mb-0">
               <li className="mb-2">
-                <a href="#" className="text-muted">
-                  Login
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Register
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/ngo" className="text-muted">
                   Browse NGOs
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-muted">
+                <a href="/" className="text-muted">
                   Our Mission
                 </a>
               </li>

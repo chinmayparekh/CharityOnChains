@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Page1.css";
-import { addData } from "../utils/ipfs/ipfs_add";
+
 import {
   MDBBtn,
   MDBModal,
