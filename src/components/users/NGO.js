@@ -3,6 +3,7 @@ import { sendFunds, deleteItem } from "../../utils/operation";
 import "./Store.css";
 import NgoCard from "./NgoCard";
 import shopping from "../images/shopping.svg";
+import LoadStoresForNGO from "./LoadStoresForNGO";
 
 function NGO() {
   //console.log(all_items)
@@ -77,7 +78,7 @@ function NGO() {
       <div className="bigdiv">
         <div className="containerdiv">
           <div className="containerdiv">
-            {newarray.map((item) => {
+            {/* {newarray.map((item) => {
               return (
                 <NgoCard
                   price={item.price}
@@ -86,7 +87,8 @@ function NGO() {
                 />
                 // <div>{item.price} {item.name}</div>
               );
-            })}
+            })} */}
+            <LoadStoresForNGO></LoadStoresForNGO>
           </div>
         </div>
         <div className="image">
