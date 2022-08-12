@@ -65,6 +65,16 @@ function Store() {
           <button onClick={openModal} className="addItem">
             Add Item
           </button>
+          <div className="yourDetails m-3">
+            <h1 className="mt-5">Your Details</h1>
+            <div className="details">
+              <p>Name</p>
+              <p>GST </p>
+              <p>Service Provided</p>
+              <p>Email</p>
+              <p>Location</p>
+            </div>
+          </div>
         </div>
       </div>
 

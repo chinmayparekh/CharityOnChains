@@ -52,24 +52,25 @@ function Donor(props) {
                 <div className="buttons">
                   <button
                     className="amount m-2"
-                    onClick={()=> setAmount(5000)}
+                    onClick={()=> setAmount(5000000000)}
                   >
-                    ₹ 5000
+                    &#42793; 50
                   </button>
-                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(10000)}>
-                    ₹ 10000
+                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(10000000000)}>
+                    &#42793; 100
                   </button>
-                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(15000)}>
-                    ₹ 15000
+                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(15000000000)}>
+                    &#42793; 150
                   </button>
-                  <input type="text" className="amount m-2" id="other" placeholder="Enter Amount" onChange={event=>setAmount(event.target.value)}></input>
+                  <input type="text" className="amount m-2" id="other" placeholder="Enter Amount" onChange={event=>setAmount(event.target.value*1e6)}></input>
                 </div>
                 <button className="donate amount mt-4"
                 onClick={() => {
                   console.log(props);
                   console.log(amount);
                   BuyItem(amount, data ? data.address : "Go to", props.name);
-                  console.log("button clicked");}}
+                  console.log("button clicked");
+                }}
                   >Donate Now</button>
                 <div className="socials mt-2">
                   {/* <span className="socialText">Share</span> */}

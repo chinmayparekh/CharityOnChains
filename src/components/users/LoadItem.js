@@ -29,7 +29,7 @@ class LoadItem extends Component {
       <>
         {this.state.loaded?this.state.items.map((item)=> <StoreCard name={item.name} price={item.price}></StoreCard>):
         <div className="row"> 
-					You have no items to display! Add items to show them here.
+					<h2>You have no items to display! Add items to show them here.</h2>
 				</div>}
       </>
     );
