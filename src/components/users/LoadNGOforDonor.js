@@ -19,7 +19,9 @@ class LoadNGOForDonor extends Component {
         ngos.push({ address: key, ...it[key] });
       }
       console.log(ngos);
-      this.setState({ ngo: ngos, loaded: true });
+      if(ngos.length>0){
+        this.setState({ ngo: ngos, loaded: true });
+      }
     };
     StoreLoader();
     console.log(this.state.ngo);
@@ -27,7 +29,7 @@ class LoadNGOForDonor extends Component {
   render() {
     return (
       <>
-        {this.state.loaded &&
+        {this.state.loaded?
           this.state.ngo.map((ngos) => (
             <DonorCard
               name={ngos.name}
@@ -38,7 +40,9 @@ class LoadNGOForDonor extends Component {
               sector={ngos.sector}
               key={ngos.name}
             ></DonorCard>
-          ))}
+          )):<div className="row"> 
+					Loading...
+				</div>}
       </>
     );
   }

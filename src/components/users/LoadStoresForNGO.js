@@ -23,7 +23,8 @@ class LoadStoresForNGO extends Component {
             stores.push({ address: key, ...it[key][j] });
         }
       }
-      this.setState({ stores: stores, loaded: true });
+      if(stores.length>0)
+        this.setState({ stores: stores, loaded: true });
     };
     StoreLoader();
     console.log(this.state.stores);
@@ -31,14 +32,16 @@ class LoadStoresForNGO extends Component {
   render() {
     return (
       <>
-        {this.state.loaded &&
+        {this.state.loaded?
           this.state.stores.map((store) => (
             <NgoCard
               name={store.name}
               price={store.price}
               address={store.address}
             ></NgoCard>
-          ))}
+          )):<div className="row"> 
+					No Stores to display! Come back in some time to view them.
+				</div>}
       </>
     );
   }

@@ -17,7 +17,9 @@ class LoadItem extends Component {
       const account = await getAccount();
       const storage = await fetchStorage();
       const it = storage["store_items"][account];
-      this.setState({ items: it, loaded: true });
+      if(typeof(it)!=="undefined"){
+        this.setState({ items: it,loaded: true})
+      }
     };
     ItemLoader();
     console.log(this.state.items);
@@ -25,8 +27,8 @@ class LoadItem extends Component {
   render() {
     return (
       <>
-        {this.state.loaded && this.state.items.length>0 && this.state.items.map((item)=> <StoreCard name={item.name} price={item.price}></StoreCard>)}
-				{this.state.items.length===0 && <div className="row"> 
+        {this.state.loaded?this.state.items.map((item)=> <StoreCard name={item.name} price={item.price}></StoreCard>):
+        <div className="row"> 
 					You have no items to display! Add items to show them here.
 				</div>}
       </>
