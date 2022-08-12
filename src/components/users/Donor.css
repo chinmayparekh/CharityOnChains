@@ -116,6 +116,17 @@ p {
    justify-content: center;
 }
 
+#other{
+   background-color: white;
+   transition: 0.7s;
+}
+
+#other:hover{
+   background-color: #1f2432;
+   color: white;
+   transition: 0.7s;
+}
+
 .amount {
    background-color: #f0f0ff;
    border-radius: 5px;

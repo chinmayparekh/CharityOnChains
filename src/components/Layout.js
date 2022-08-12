@@ -51,10 +51,12 @@ const Layout = (props) => {
     checkForm(data);
     console.log(data);
   };
+  const imageHeight = {
+    height: "200px",
+  };
 
   return (
     <>
-
       <Card className="register-cards text-center">
         <CardHeader color="dark" className="layout-heading ">
           {props.title}
@@ -63,6 +65,7 @@ const Layout = (props) => {
           top
           src={props.image}
           alt={props.id}
+          style={imageHeight}
           className="layout-image"
         ></CardImg>
         <CardBody>

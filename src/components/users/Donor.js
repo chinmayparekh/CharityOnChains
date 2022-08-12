@@ -1,9 +1,17 @@
 import "./Donor.css";
+import {useState} from 'react';
 import fatherhood from "../images/fatherhood.svg";
 import Progress from "reactstrap";
 import { useLocation } from "react-router-dom";
+import {sendFunds} from "../../utils/operation"
 
 function Donor(props) {
+  const [amount,setAmount]=useState(0);
+  const BuyItem = async (price, address, name) => {
+    console.log("beginning");
+    await sendFunds(address, price);
+    console.log("end of func");
+  }
   var percentage = 280;
   console.log("props", props);
   // const data = props;
@@ -26,10 +34,11 @@ function Donor(props) {
             <div className="halfcontainer glassy">
               <div className="topcontainer top">
                 <h3 className="name">{data ? data.title : "Go to"}</h3>
+                {/* <p>{data ? data.address : "Go to"}</p> */}
                 <p>Fundraiser Progress</p>
                 <p className="money">
-                  <span className="bold">₹ 84,09,766 </span>
-                  raised of ₹ 1,00,00,000
+                  <span className="bold"> &#42793; 84,09,766 </span>
+                  raised of &#42793;1,00,00,000
                 </p>
                 <div class="minecontainer">
                   <div class="skill html" style={{ width: percentage }}>
@@ -45,21 +54,25 @@ function Donor(props) {
                 <div className="buttons">
                   <button
                     className="amount m-2"
-                    onClick={() => (percentage = 500)}
+                    onClick={()=> setAmount(5000)}
                   >
                     ₹ 5000
                   </button>
-                  <button className="amount m-2" id="b10000">
+                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(10000)}>
                     ₹ 10000
                   </button>
-                  <button className="amount m-2" id="b15000">
+                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(15000)}>
                     ₹ 15000
                   </button>
-                  <button className="amount m-2" id="000">
-                    Other
-                  </button>
+                  <input type="text" className="amount m-2" id="other" placeholder="Enter Amount" onChange={event=>setAmount(event.target.value)}></input>
                 </div>
-                <button className="donate amount mt-4">Donate Now</button>
+                <button className="donate amount mt-4"
+                onClick={() => {
+                  console.log(props);
+                  console.log(amount);
+                  BuyItem(amount, data ? data.address : "Go to", props.name);
+                  console.log("button clicked");}}
+                  >Donate Now</button>
                 <div className="socials mt-2">
                   {/* <span className="socialText">Share</span> */}
                   <li class="list-inline-item">

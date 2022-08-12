@@ -15,11 +15,13 @@ function DonorCard(props) {
   const [data, setData] = useState({
     id: "1",
     title: props.name,
+    address: props.address,
   });
 
   const mydata = [
     {
       name: props.name,
+      address: props.address,
     },
   ];
   //   let navigate = useNavigate();
@@ -36,15 +38,15 @@ function DonorCard(props) {
       </div>
       <div className="cardFooter">
         <Link to={{ pathname: "/donor" }} state={{ data: data }}>
-          {/* <button
+          <button
           className="buy m-4"
           // onClick={() => {
           //   
           //   routeChange("/donor");
           // }}
-          > */}
+          >
           Donate Now
-          {/* </button> */}
+          </button>
         </Link>
       </div>
     </div>

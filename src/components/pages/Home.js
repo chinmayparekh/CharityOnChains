@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 import "../../styles/Page1.css";
 import Layout from "../Layout";
 import {
-registerDonor,
-registerNGO,
-registerStore,
+  registerDonor,
+  registerNGO,
+  registerStore,
 } from "../../utils/operation";
 import { useNavigate } from "react-router-dom";
 import happy from "../images/happy.svg";
@@ -19,9 +19,9 @@ function Home() {
   const routeChange = (path) => {
     navigate(path);
   };
-  const [isRegistered,setRegistered]=useState("");
+  const [isRegistered, setRegistered] = useState("");
   return (
-    <div className="my-3">
+    <div className="">
       <div className="banner">
         <div className="halfcontainer">
           <img src={banner} alt="banner" />
@@ -82,85 +82,87 @@ function Home() {
 
       <div className="container">
         <div id="Page2">
-         <br/>
-         <br/>
+          <br />
+          <br />
 
-          {isRegistered===""?
-          <div className="row mb-3 layout-row">
-            <div className="col-12 col-sm-4 p-2">
-               <br/>
-              <Layout
-                id="NGO"
-                title="Register yourself as a NGO"
-                content="To promote social or political change on a broad scale through our platform. "
-                image={promote}
-                modalTitle="Register as NGO"
-                modal1="NGO Name"
-                modal2="NGO Type"
-                modal3="Sector"
-                modal4="Registeration License"
-                modal5="Email ID"
-                register={async (hash) => {
-                  try {
-                    await registerNGO(hash);
-                    alert("Transaction succesful!");
-                    setRegistered("ngo");
-                    routeChange("ngo");
-                  } catch (err) {
-                    alert(err.message);
-                  }
-                }}
-              />
+          {isRegistered === "" ? (
+            <div className="row mb-3 layout-row">
+              <div className="col-12 col-sm-4 p-2">
+                <Layout
+                  id="NGO"
+                  title="Register yourself as a NGO"
+                  content="To promote social or political change on a broad scale. "
+                  image={promote}
+                  modalTitle="Register as NGO"
+                  modal1="NGO Name"
+                  modal2="NGO Type"
+                  modal3="Sector"
+                  modal4="Registeration License"
+                  modal5="Email ID"
+                  register={async (hash) => {
+                    try {
+                      await registerNGO(hash);
+                      alert("Transaction succesful!");
+                      setRegistered("ngo");
+                      routeChange("ngo");
+                    } catch (err) {
+                      alert(err.message);
+                    }
+                  }}
+                />
+              </div>
+              <div className="col-12 col-sm-4 p-2">
+                <Layout
+                  id="Donor"
+                  title="Register yourself as a Donor"
+                  content="Giving is not just make a donation, it's about making difference."
+                  image={hand}
+                  modalTitle="Register as a Donor"
+                  modal1="Name"
+                  modal2="Aadhar Card"
+                  modal3="Phone number"
+                  modal4="Email ID"
+                  modal5="Country"
+                  register={async (hash) => {
+                    try {
+                      await registerDonor(hash);
+                      alert("Transaction succesful!");
+                      setRegistered("donor");
+                      routeChange("donor");
+                    } catch (err) {
+                      alert(err.message);
+                    }
+                  }}
+                />
+              </div>
+              <div className="col-12 col-sm-4 p-2">
+                <Layout
+                  id="Store"
+                  title="Register yourself as a Store"
+                  content="Help NGOs by providing your equipement at nominal prices."
+                  image={shop}
+                  modalTitle="Register as a Store"
+                  modal1="Name"
+                  modal2="GST Number"
+                  modal3="Service/Product Provided"
+                  modal4="Email ID"
+                  modal5="Location"
+                  register={async (hash) => {
+                    try {
+                      await registerStore(hash);
+                      alert("Transaction succesful!");
+                      setRegistered("store");
+                      routeChange("store");
+                    } catch (err) {
+                      alert(err.message);
+                    }
+                  }}
+                />
+              </div>
             </div>
-            <div className="col-12 col-sm-4 p-2">
-              <Layout
-                id="Donor"
-                title="Register yourself as a Donor"
-                content="Giving is not just make a donation, it's about making difference."
-                image={hand}
-                modalTitle="Register as a Donor"
-                modal1="Name"
-                modal2="Aadhar Card"
-                modal3="Phone number"
-                modal4="Email ID"
-                modal5="Country"
-                register={async (hash) => {
-                  try {
-                    await registerDonor(hash);
-                    alert("Transaction succesful!");
-                    setRegistered("donor");
-                    routeChange("donor");
-                  } catch (err) {
-                    alert(err.message);
-                  }
-                }}
-              />
-            </div>
-            <div className="col-12 col-sm-4 p-2">
-              <Layout
-                id="Store"
-                title="Register yourself as a Store"
-                content="Help NGOs by providing your equipement at nominal prices."
-                image={shop}
-                modalTitle="Register as a Store"
-                modal1="Name"
-                modal2="GST Number"
-                modal3="Service/Product Provided"
-                modal4="Email ID"
-                modal5="Location"
-                register={async (hash) => {
-                  try {
-                    await registerStore(hash);
-                    alert("Transaction succesful!");
-                    setRegistered("store");
-                    routeChange("store");
-                  } catch (err) {
-                    alert(err.message);
-                  }
-                }}
-              />
-            </div>
-          </div>:<div/>}
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </div>
