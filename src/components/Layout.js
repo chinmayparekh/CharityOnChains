@@ -36,8 +36,8 @@ const Layout = (props) => {
       console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
-      addData(data, props.register);
-      // props.register(data);
+      // addData(data, props.register);
+      props.register(data);
     }
     //form is invalid
     else {
@@ -95,7 +95,7 @@ const Layout = (props) => {
                     />
                     <label>{props.modal2} </label>
                     {props.id==="NGO"?
-                    <select name="ngoType" id="ngoType" onChange={(e) => setField2(e.target.value)}>
+                    <select name="ngoType" id="ngoType" onChange={(e) => setField2(e.target.value)} value={field2}>
                         <option value="Private Sector Companies">Private Sector Companies</option>
                         <option value="Trust">Trust</option>
                         <option value="Registered Societies">Civic IRegistered Societies</option>

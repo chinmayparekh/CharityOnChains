@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Card, CardImg, CardBody, CardHeader, CardText } from "reactstrap";
 import cardimg from "../images/cardimg.svg";
 import "./Store.css";
@@ -12,7 +12,6 @@ function DonorCard(props) {
     console.log("Button pressed");
     navigate(path);
   };
-
   return (
     <div className="mycard m-4">
       <h2 className="cardname">{props.name}</h2>

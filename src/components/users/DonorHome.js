@@ -3,32 +3,11 @@ import { sendFunds, deleteItem } from "../../utils/operation";
 import "./Store.css";
 import DonorCard from "./DonorCard";
 import shopping from "../images/shopping.svg";
+import LoadNGOForDonor from "./LoadNGOforDonor";
 
 
 function DonorHome() {
-  //console.log(all_items)
-  let storage = {};
-  let newarray = [
-    {name: 'Red Cross'},
-    {name: 'Humanity'},
-    {name: 'Charity Name'},
-    {name: 'Charity Name'},
-    {name: 'Charity Name'},
-    {name: 'Charity Name'},
-    {name: 'Charity Name'},
-  ];
-  const LoadData = async () => {
-    let items = [];
-    storage = await fetchStorage();
-    console.log(storage);
-    const it = storage["store_items"];
-    console.log(it);
-    // items.push(it);
-    // console.log(items);
-    return items;
-  };
 
-  LoadData();
   const BuyItem = async (price, address, name) => {
     await sendFunds(address, price);
     await deleteItem(address, name);
@@ -45,11 +24,7 @@ function DonorHome() {
         <div className="containerdiv">
           
           <div className="containerdiv">
-            {newarray.map(item => {
-              return (
-                <DonorCard name={item.name}/>
-              )
-            })}
+          <LoadNGOForDonor></LoadNGOForDonor>
           </div>
         </div>
         <div className="image">
