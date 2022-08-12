@@ -1,18 +1,18 @@
-h1{
+h1 {
    text-align: center;
 }
 
-.purple{
+.purple {
    color: #00dae4;
 }
 
-.waste{
-   width:100%;
+.waste {
+   width: 100%;
    display: flex;
    justify-content: center;
 }
 
-.mycontainer{
+.mycontainer {
    display: flex;
    justify-content: center;
    width: 50%;
@@ -20,7 +20,7 @@ h1{
    border-radius: 5%;
 }
 
-.halfcontainer{
+.halfcontainer {
    display: flex;
    align-items: center;
    justify-content: center;
@@ -28,32 +28,30 @@ h1{
    height: 50vh;
 }
 
-.glassy{
-   background: linear-gradient(
-    to right bottom,
-    rgba(200,200,200, 0.5),
-    rgba(200,200,200, 0.3)
-  );
-  border-radius: 2rem;
+.glassy {
+   background: linear-gradient(to right bottom,
+         rgba(200, 200, 200, 0.5),
+         rgba(200, 200, 200, 0.3));
+   border-radius: 2rem;
    z-index: 2;
    backdrop-filter: blur(2rem);
 }
 
-.waste{
+.waste {
    height: 60vh;
 }
 
-.biggest{
+.biggest {
    background-image: url(../images/donorimg.svg);
    background-position: center;
-   
+
 }
 
-.border{
+.border {
    border: solid;
 }
 
-.image{
+.image {
    width: 120%;
 }
 
@@ -64,7 +62,7 @@ p {
 .minecontainer {
    background-color: #f0f0ff;
    width: 80%;
-       border-radius: 15px;
+   border-radius: 15px;
 }
 
 .skill {
@@ -80,60 +78,61 @@ p {
    /* width: 80%; */
 }
 
-.topcontainer{
+.topcontainer {
    display: flex;
    flex-direction: column;
    vertical-align: top;
    width: 90%;
-   left:54px;
+   left: 54px;
 }
 
-.top{
+.top {
    position: relative;
-   top:-50px;
+   top: -50px;
 }
 
-.money{
+.money {
    font-style: italic;
 }
-.bold{
+
+.bold {
    font-weight: bold;
    font-size: larger;
 }
 
-.bottomcontainer{
+.bottomcontainer {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
 
-.smalltext{
-   font-size:small;
+.smalltext {
+   font-size: small;
 }
 
-.buttons{
+.buttons {
    display: flex;
    justify-content: center;
 }
 
-.amount{
+.amount {
    background-color: #f0f0ff;
    border-radius: 5px;
    transition: 0.7s;
    height: 90%;
    width: 60%;
-   border:none;
+   border: none;
 
 }
 
-.amount:hover{
+.amount:hover {
    background-color: #1f2432;
    color: white;
    transition: 0.7s;
 }
 
-.donate{
+.donate {
    height: 40px;
    width: 97%;
    border-radius: 5px;
@@ -141,20 +140,20 @@ p {
    color: white;
 }
 
-.donate:hover{
+.donate:hover {
    transition: 0.7s;
    background-color: #f0f0ff;
    color: white;
 }
 
-.name{
+.name {
    text-align: center;
    position: relative;
-   left:-40px;
+   left: -40px;
 }
 
-.socials{
-   display:flex;
+.socials {
+   display: flex;
    flex-direction: row;
 
 }
