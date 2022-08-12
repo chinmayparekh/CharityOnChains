@@ -1,0 +1,121 @@
+import smart
+
+class Registeration(sp.Contract):
+    def __init__(self):
+        self.init(
+            donors = sp.map(l={}, tkey=sp.TAddress, tvalue=sp.TRecord(name=sp.TString,aadhar=sp.TString,phone=sp.TString,email=sp.TString,country=sp.TString)),
+            ngos = sp.map(l={},tkey=sp.TAddress, tvalue=sp.TRecord(name=sp.TString,type=sp.TString,sector=sp.TString,funds=sp.TString,email=sp.TString)),
+            cooperative_stores = sp.map(l={},tkey=sp.TAddress, tvalue=sp.TRecord(name=sp.TString,phone=sp.TString,service=sp.TString,email=sp.TString,location=sp.TString)),
+            store_items = sp.map(l={},tkey=sp.TAddress,tvalue=sp.TList(sp.TRecord(name=sp.TString,price=sp.TNat,valid=sp.TInt)))
+        )
+
+    @sp.entry_point
+    def register_donor(self,params):
+        sp.set_type(params.field1,sp.TString)
+        sp.set_type(params.field2,sp.TString)
+        sp.set_type(params.field3,sp.TString)
+        sp.set_type(params.field4,sp.TString)
+        sp.set_type(params.field5,sp.TString)
+        self.data.donors[sp.sender] = sp.record(
+            name = params.field1,
+            aadhar = params.field2,
+            phone = params.field3,
+            email = params.field4,
+            country = params.field5
+            )
+
+    @sp.entry_point
+    def register_ngo(self,params):
+        sp.set_type(params.field1,sp.TString)
+        sp.set_type(params.field2,sp.TString)
+        sp.set_type(params.field3,sp.TString)
+        sp.set_type(params.field4,sp.TString)
+        sp.set_type(params.field5,sp.TString)
+        self.data.ngos[sp.sender] = sp.record(
+            name = params.field1,
+            type = params.field2,
+            sector = params.field3,
+            funds = params.field4,
+            email = params.field5
+            )
+    @sp.entry_point
+    def register_store(self,params):
+        sp.set_type(params.field1,sp.TString)
+        sp.set_type(params.field2,sp.TString)
+        sp.set_type(params.field3,sp.TString)
+        sp.set_type(params.field4,sp.TString)
+        sp.set_type(params.field5,sp.TString)
+
+        self.data.cooperative_stores[sp.sender] = sp.record(
+            name = params.field1,
+            phone = params.field2,
+            service = params.field3,
+            email = params.field4,
+            location = params.field5
+            )
+
+    @sp.entry_point
+    def add_items(self,item_details):
+        sp.set_type(item_details,sp.TRecord(name=sp.TString,price=sp.TNat,valid=sp.TInt))
+
+        sp.if self.data.store_items.contains(sp.sender):
+            self.data.store_items[sp.sender].push(sp.record(name = item_details.name,price=item_details.price,valid=item_details.valid))
+
+        sp.else:
+            self.data.store_items[sp.sender] = sp.list([(sp.record(name = item_details.name,price=item_details.price,valid=item_details.valid))])
+
+
+    @sp.entry_point
+    def delete_items(self,params):
+        sp.set_type(params,sp.TRecord(name=sp.TString,store_address=sp.TAddress))
+        
+        sp.for item in self.data.store_items[params.store_address]:
+            sp.if item.name==params.name:
+                item.valid=0
+
+
+    @sp.entry_point
+    def send_funds(self,store_address):
+        sp.set_type(store_address,sp.TAddress)
+        sp.send(store_address,sp.amount)
+
+
+
+@sp.add_test(name = "main")
+def test():
+    scenario = sp.test_scenario()
+
+    # Test accounts
+    admin = sp.test_account("admin")
+    alice = sp.test_account("alice")
+    bob = sp.test_account("bob")
+    mike = sp.test_account("mike")
+    charles = sp.test_account("charles")
+    john = sp.test_account("john")
+
+    # Contract instance
+    registeration = Registeration()
+    scenario += registeration
+
+
+    
+    item_details = sp.record(name="items",price=10,valid=1)
+    store = sp.record(field1="Store",field2="93924",field3="Clothes",field4="gmail.com",field5="Bglr")
+    donor = sp.record(field1="Donor",field2="1088",field3="234",field4=".com",field5="INDIA")
+    ngo = sp.record(field1="ngo",field2="go",field3="health",field4="123343",field5=".com1")
+    del_item = sp.record(name = "items",store_address=alice.address)
+    
+
+
+
+    scenario.h2("add_items (valid test)")
+    scenario += registeration.register_store(store).run(sender = alice,valid=True)
+    scenario += registeration.register_donor(donor).run(sender=bob,valid=True)
+    scenario += registeration.register_ngo(ngo).run(sender=mike,valid=True)
+    scenario += registeration.add_items(item_details).run(sender=alice,valid=True)
+    scenario += registeration.add_items(item_details).run(sender=alice,valid=True)
+
+    scenario += registeration.delete_items(del_item).run(sender=alice,valid=True)
+    scenario += registeration.send_funds(alice.address).run(sender=alice,amount=sp.mutez(1000000),valid=True)
+    #scenario += registeration.add_items(item_details1).run(sender = alice,valid=True)
+
