@@ -1,17 +1,21 @@
 import "./Donor.css";
 import fatherhood from "../images/fatherhood.svg";
 import Progress from "reactstrap";
+import { useLocation } from "react-router-dom";
 
 function Donor(props) {
   var percentage = 280;
-  const data = props.location;
+  console.log("props", props);
+  // const data = props;
   // const updateProgressBar()
   // {
   //    this.percentage=300;
   // }
-
+  const location = useLocation();
+  const data = location.state?.data;
   return (
     <>
+      {console.log("props", props)}
       <div className="biggest">
         <h1 className="mt-3">
           Donate Now, <span className="purple">Save</span> The Lives of
@@ -21,7 +25,7 @@ function Donor(props) {
           <div className="mycontainer">
             <div className="halfcontainer glassy">
               <div className="topcontainer top">
-                <h3 className="name">RED CROSS</h3>
+                <h3 className="name">{data ? data.title : "Go to"}</h3>
                 <p>Fundraiser Progress</p>
                 <p className="money">
                   <span className="bold">₹ 84,09,766 </span>

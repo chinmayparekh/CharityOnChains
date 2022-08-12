@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {List,ListInlineItem} from 'reactstrap';
+import { List, ListInlineItem } from "reactstrap";
 import { connectWallet, getAccount, disconnectWallet } from "../utils/wallet";
 import { fetchStorage } from "../utils/tzkt";
 import { useNavigate } from "react-router-dom";
@@ -16,12 +16,12 @@ import { getAmt } from "../utils/operation";
 const Navbar = () => {
   const [account, setAccount] = useState("");
   const [userDD, setUserDD] = useState(false);
-  const [balance, setBalance] = useState(-1.00);
+  const [balance, setBalance] = useState(-1.0);
   useEffect(() => {
     (async () => {
       // TODO 5.b - Get the active account
       const account = await getAccount();
-      const balance=await getAmt(account);
+      const balance = await getAmt(account);
       setBalance(balance);
       setAccount(account);
     })();
@@ -36,7 +36,7 @@ const Navbar = () => {
     await disconnectWallet();
     setAccount("");
     setUserDD(false);
-    setBalance(0.00);
+    setBalance(0.0);
     const storage = await fetchStorage();
     console.log(storage);
     getAmt(account);
@@ -45,7 +45,7 @@ const Navbar = () => {
 
   const onConnectWallet = async () => {
     await connectWallet();
-    
+
     const account = await getAccount();
     setBalance(getAmt(account));
     console.log(balance);
@@ -54,22 +54,18 @@ const Navbar = () => {
     const storage = await fetchStorage();
 
     if (
-      !(account in storage["donors"])&&
+      !(account in storage["donors"]) &&
       !(account in storage["ngos"]) &&
-      !(account in storage["cooperative_stores"]) 
+      !(account in storage["cooperative_stores"])
     ) {
-      console.log(" ")
+      console.log(" ");
     } else if (account in storage["donors"]) {
       //function to display donor page
       routeChange("donorhome");
-    } else if (
-      account in storage["ngos"]
-    ) {
+    } else if (account in storage["ngos"]) {
       //function to display charity page
       routeChange("ngo");
-    } else if (
-      account in storage["cooperative_stores"]
-    ) {
+    } else if (account in storage["cooperative_stores"]) {
       //function to display store page
       routeChange("store");
     }
@@ -96,23 +92,26 @@ const Navbar = () => {
             ) : (
               <List type="inline">
                 <ListInlineItem>&#42793; {balance}</ListInlineItem>
-              <ListInlineItem><Dropdown
-                isOpen={userDD}
-                toggle={() => setUserDD(!userDD)}
-                direction="down"
-                size="50px"
-                inNavbar={true}>
-                <DropdownToggle caret>{account}</DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem onClick={onConnectWallet}>
-                    Change Account
-                  </DropdownItem>
-                  <DropdownItem divider></DropdownItem>
-                  <DropdownItem onClick={onDisconnectWallet}>
-                    Logout
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown></ListInlineItem>
+                <ListInlineItem>
+                  <Dropdown
+                    isOpen={userDD}
+                    toggle={() => setUserDD(!userDD)}
+                    direction="down"
+                    size="50px"
+                    inNavbar={true}
+                  >
+                    <DropdownToggle caret>{account}</DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem onClick={onConnectWallet}>
+                        Change Account
+                      </DropdownItem>
+                      <DropdownItem divider></DropdownItem>
+                      <DropdownItem onClick={onDisconnectWallet}>
+                        Logout
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </ListInlineItem>
               </List>
             )}
           </span>

@@ -8,9 +8,9 @@ import { fetchData } from "../../utils/ipfs/ipfs_fetch";
 import { fetchStorage } from "../../utils/tzkt";
 import { getAccount } from "../../utils/wallet";
 import shopping from "../images/shopping.svg";
-import LoadItem from "./LoadItem"
-import StoreCard from "./StoreCard"
-import "./Store.css"
+import LoadItem from "./LoadItem";
+import StoreCard from "./StoreCard";
+import "./Store.css";
 
 function Store() {
   const [state, setState] = useState(false);
@@ -29,7 +29,7 @@ function Store() {
   };
   const checkForm = (items) => {
     //form is valid
-    if (items.name !== ""&& items.price > 0) {
+    if (items.name !== "" && items.price > 0) {
       console.log("Valid");
       textStyle.border = "2px solid green";
       return true;
@@ -64,32 +64,25 @@ function Store() {
   return (
     // <div className="container">
     <>
-      <br/>
-      <br/>
-      <br/>
-      
-         
+      <br />
+      <br />
+      <br />
+
       <div className="bigdiv">
         <div className="containerdiv">
-          
           <div className="containerdiv">
-            <LoadItem/>
+            <LoadItem />
           </div>
         </div>
         <div className="image">
-          <img src={shopping} alt="shopping" height="400px"/>
+          <img src={shopping} alt="shopping" height="400px" />
           {/* <br/> */}
           <h1 className="mt-5">These are the Items Available in Your Store</h1>
-          <button
-              onClick={openModal}
-              className="addItem"
-            >
-              Add Item
-            </button>
+          <button onClick={openModal} className="addItem">
+            Add Item
+          </button>
         </div>
       </div>
-
-
 
       <Modal show={state} onHide={closeModal}>
         <Modal.Header closeButton>
@@ -131,7 +124,6 @@ function Store() {
           </Button>
         </Modal.Footer>
       </Modal>
-
     </>
   );
 }

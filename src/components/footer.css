@@ -4,17 +4,17 @@
     background: #272725;
 }
 
-.prodname{
-    border-bottom:1px solid #FFF;
+.prodname {
+    border-bottom: 1px solid #FFF;
 }
 
-.footy{
-   background: #1f2432;
-   width: 150px;
-   height: 75px;
-   border-radius: 50% / 100% 100% 0 0;
+.footy {
+    background: #1f2432;
+    width: 150px;
+    height: 75px;
+    border-radius: 50% / 100% 100% 0 0;
 }
 
-.copywrite{
-   background: #1f2432;
+.copywrite {
+    background: #1f2432;
 }

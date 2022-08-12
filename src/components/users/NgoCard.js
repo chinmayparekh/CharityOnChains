@@ -11,7 +11,7 @@ function NgoCard(props) {
     await sendFunds(address, price);
     console.log("end of func");
 
-    await deleteItem(name,address);
+    await deleteItem(name, address);
     console.log("end of delete func");
   };
   return (
