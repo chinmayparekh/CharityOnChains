@@ -4,7 +4,7 @@ import "./Store.css";
 
 function StoreCard(props) {
   return (
-    <div className="mycard m-4">
+    <div className="mycard display-cards m-4">
       <h2 className="cardname">{props.name}</h2>
       <div className="image">
         <img src={cardimg} alt="cardimg" height="200px" />
