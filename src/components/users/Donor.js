@@ -72,6 +72,8 @@ function Donor(props) {
                   console.log("button clicked");
                 }}
                   >Donate Now</button>
+                  <a className="mybutton outlink mb-2" href="https://jakartanet.tzkt.io/KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv/operations/" target="_blank">View All Transactions</a>
+
                 <div className="socials mt-2">
                   {/* <span className="socialText">Share</span> */}
                   <li class="list-inline-item">

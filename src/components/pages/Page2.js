@@ -12,42 +12,31 @@ const Page2 = (props) => {
 
   return (
     <>
-      <div className="column-centralize">
-        <div className="column-centralize">
-          <div className="card" id="card-about">
-            <div
-              className="card-body flex-container "
-              id="card-about"
-              style={cardBackground}
-            >
-              <div className="centralize">
-                <div>
-                  <p className="heading">{props.heading}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="banner aboutbiggest">
+        <div className="topCard">
+          <h1 className="headingText white mb-5">Meet Our <span className="cyan">Team</span></h1>
+          <div className="hr newhr"></div>
         </div>
         <div className="container">
           <div className="team">
             <div className="person">
               <img src={name1} alt=""></img>
-              <p className="names">{props.name1}</p>
+              <p className="names white">{props.name1}</p>
             </div>
             <div className="person">
               <img src={name2} alt=""></img>
-              <p className="names">{props.name2}</p>
+              <p className="names white">{props.name2}</p>
             </div>
             <div className="person">
               <img src={name3} alt=""></img>
-              <p className="names">{props.name3}</p>
+              <p className="names white">{props.name3}</p>
             </div>
             <div className="person">
               <img src={name4} alt=""></img>
-              <p className="names">{props.name4}</p>
+              <p className="names white">{props.name4}</p>
             </div>
           </div>
-        </div>
+      </div>
       </div>
     </>
   );

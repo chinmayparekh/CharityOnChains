@@ -168,3 +168,9 @@ p {
    flex-direction: row;
 
 }
+
+.outlink{
+   position:relative;
+   top:10px;
+   text-decoration: none;
+}
