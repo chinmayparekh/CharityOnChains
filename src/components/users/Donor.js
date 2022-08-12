@@ -12,16 +12,16 @@ function Donor(props) {
 
   return (
     <>
-    {console.log("data", data)}
+    <div className="biggest">
       <h1 className="mt-3">
         Donate Now, <span className="purple">Save</span> The Lives of Countless
         Human Beings
       </h1>
-      <div className="waste">
+      <div className="waste m-5">
         <div className="mycontainer">
-          <div className="halfcontainer">
+          <div className="halfcontainer glassy">
             <div className="topcontainer top">
-              <h3 className="name">RED CROSS</h3>
+              <p className="name">RED CROSS</p>
               <p>Fundraiser Progress</p>
               <p className="money">
                 <span className="bold">₹ 84,09,766 </span>
@@ -86,10 +86,11 @@ function Donor(props) {
               </div>
             </div>
           </div>
-          <div className="halfcontainer">
+          {/* <div className="halfcontainer">
             <img src={fatherhood} alt="change" className="image" />
-          </div>
+          </div> */}
         </div>
+      </div>
       </div>
     </>
   );
