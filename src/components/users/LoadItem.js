@@ -25,10 +25,10 @@ class LoadItem extends Component {
   render() {
     return (
       <>
-        {this.state.loaded &&
-          this.state.items.map((item) => (
-            <StoreCard name={item.name} price={item.price}></StoreCard>
-          ))}
+        {this.state.loaded && this.state.items.length>0 && this.state.items.map((item)=> <StoreCard name={item.name} price={item.price}></StoreCard>)}
+				{this.state.items.length===0 && <div className="row"> 
+					You have no items to display! Add items to show them here.
+				</div>}
       </>
     );
   }
