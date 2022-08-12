@@ -1,0 +1,117 @@
+/*global*/
+.card {
+    display: inline-block;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.card {
+    margin-top: 40px;
+}
+
+.card-heading {
+    color: #004995;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.card-content {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 90px;
+    color: #080808;
+    padding-left: 20px;
+
+}
+
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex: wrap;
+}
+
+
+
+
+.flex-container {
+    display: flex;
+    align-items: center;
+
+}
+
+
+/*about page*/
+.column-centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#card-about {
+    /* width: 1180px; */
+    height: 420px;
+    border-radius: 65px;
+}
+
+.team {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-bottom: 80px;
+}
+
+.person {
+    margin: 20px;
+}
+
+.names {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 94px;
+    color: #000000;
+}
+
+.work {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+
+}
+
+
+@media(max-width:1400px) {
+    .team {
+        justify-content: center;
+    }
+
+}
+
+@media(max-width:1200px) {
+
+
+    #card-about {
+        width: 90vw;
+    }
+
+
+}

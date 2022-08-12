@@ -114,6 +114,7 @@ const Navbar = () => {
               </List>
             )}
           </span>
+          <a>About us</a>
         </div>
       </nav>
     </>

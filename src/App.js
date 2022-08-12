@@ -8,6 +8,7 @@ import Donor from "./components/users/Donor";
 import NGO from "./components/users/NGO";
 import DonorHome from "./components/users/DonorHome";
 import Store from "./components/users/Store";
+import About from "./components/pages/About";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/ngo" element={<NGO />}></Route>
           <Route path="/store" element={<Store />}></Route>
           <Route path="/donorhome" element={<DonorHome />}></Route>
+          <Route path="/about" element={<About />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
