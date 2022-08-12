@@ -61,7 +61,7 @@ const Navbar = () => {
       console.log(" ")
     } else if (account in storage["donors"]) {
       //function to display donor page
-      routeChange("donor");
+      routeChange("donorhome");
     } else if (
       account in storage["ngos"]
     ) {

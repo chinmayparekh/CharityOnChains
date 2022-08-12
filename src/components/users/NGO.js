@@ -33,7 +33,7 @@ function NGO() {
     await sendFunds(address, price);
     await deleteItem(address, name);
   };
-  BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
+  // BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
 
   console.log()
   return (
