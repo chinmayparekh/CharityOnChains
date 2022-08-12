@@ -52,14 +52,14 @@ function Donor(props) {
                 <div className="buttons">
                   <button
                     className="amount m-2"
-                    onClick={()=> setAmount(5000000000)}
+                    onClick={()=> setAmount(50000000)}
                   >
                     &#42793; 50
                   </button>
-                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(10000000000)}>
+                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(100000000)}>
                     &#42793; 100
                   </button>
-                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(15000000000)}>
+                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(150000000)}>
                     &#42793; 150
                   </button>
                   <input type="text" className="amount m-2" id="other" placeholder="Enter Amount" onChange={event=>setAmount(event.target.value*1e6)}></input>
@@ -68,8 +68,13 @@ function Donor(props) {
                 onClick={() => {
                   console.log(props);
                   console.log(amount);
-                  BuyItem(amount, data ? data.address : "Go to", props.name);
-                  console.log("button clicked");
+                  if(amount!==0){
+                    BuyItem(amount, data ? data.address : "Go to", props.name);
+                    console.log("button clicked");
+                  }
+                  else{
+                    alert("Please enter valid amount!");
+                  }
                 }}
                   >Donate Now</button>
                   <a className="mybutton outlink mb-2" href="https://jakartanet.tzkt.io/KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv/operations/" target="_blank">View All Transactions</a>

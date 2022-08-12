@@ -16,7 +16,7 @@ function Store() {
 
   fetchDetails("cooperative_stores").then((response)=>setDetails(response))
   
-  const [price, setPrice] = useState(1);
+  const [price, setPrice] = useState(0);
   const [valid, setValid] = useState(1);
   const textStyle = {
     border: "2px solid red",
