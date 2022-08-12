@@ -2,38 +2,41 @@ import React from "react";
 import { Card, CardImg, CardBody, CardHeader, CardText } from "reactstrap";
 import cardimg from "../images/cardimg.svg";
 import "./Store.css";
-import { useNavigate } from "react-router-dom";
-import {Link} from "react-router-dom";
+import { NGO } from "./NGO";
+import { sendFunds, deleteItem } from "../../utils/operation";
 
-function DonorCard(props) {
-  const mydata =[props.name];
-  let navigate = useNavigate();
-  const routeChange = (path) => {
-    console.log("Button pressed");
-    navigate(path);
+function NgoCard(props) {
+  const BuyItem = async (price, address, name) => {
+    console.log("beginning");
+    await sendFunds(address, price);
+    console.log("end of func");
+
+    await deleteItem(address, name);
+    console.log("end of delete func");
   };
-
   return (
     <div className="mycard m-4">
       <h2 className="cardname">{props.name}</h2>
+      <h3 className="address">{props.address}</h3>
       <div className="image">
         <img src={cardimg} alt="cardimg" height="200px" />
       </div>
       <div className="cardFooter">
-      <Link to={{pathname: "/donor", data: mydata }}>
+        <p className="price mt-3">Price: &#42793; {props.price / 1e6}</p>
         <button
           className="buy m-4"
-          // onClick={() => {
-          //   
-          //   routeChange("/donor");
-          // }}
+          onClick={() => {
+            console.log(props);
+            BuyItem(props.price, props.address, props.name);
+            console.log("button clicked");
+          }}
         >
-          Donate Now
+          Buy Now
         </button>
-        </Link>
       </div>
     </div>
   );
+
   // <div>
   // <Card className="text-center">
   //   <CardHeader color="dark">
@@ -48,4 +51,4 @@ function DonorCard(props) {
   // </div>)
 }
 
-export default DonorCard;
+export default NgoCard;

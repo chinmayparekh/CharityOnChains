@@ -1,21 +1,55 @@
 import { fetchStorage } from "../../utils/tzkt";
 import { sendFunds, deleteItem } from "../../utils/operation";
 import "./Store.css";
-import ngoCard from "./ngoCard";
+import NgoCard from "./NgoCard";
 import shopping from "../images/shopping.svg";
-
 
 function NGO() {
   //console.log(all_items)
   let storage = {};
   let newarray = [
-    {name: 'asdasd', price: '1', valid: '1'},
-    {name: 'q', price: '100', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
-    {name: 'q', price: '1', valid: '1'},
-    {name: 's', price: '1', valid: '1'},
-    {name: 'a', price: '1', valid: '1'},
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
+    {
+      name: "q",
+      price: "1",
+      valid: "1",
+      address: "tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde",
+    },
   ];
   const LoadData = async () => {
     let items = [];
@@ -29,31 +63,34 @@ function NGO() {
   };
 
   LoadData();
-  const BuyItem = async (price, address, name) => {
-    await sendFunds(address, price);
-    await deleteItem(address, name);
-  };
-  // BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
 
-  console.log()
+  // const BuyItem = async (price, address, name) => {
+  //   await sendFunds(address, price);
+  //   await deleteItem(address, name);
+  // };
+  // BuyItem(100000,"tz1Xgq5oEPwJW27vAaRkjribu3bpSPDUzkde","q");
   return (
     <>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
       <div className="bigdiv">
         <div className="containerdiv">
-          
           <div className="containerdiv">
-            {newarray.map(item => {
+            {newarray.map((item) => {
               return (
-                <ngoCard price={item.price} name={item.name}/>
-              )
+                <NgoCard
+                  price={item.price}
+                  name={item.name}
+                  address={item.address}
+                />
+                // <div>{item.price} {item.name}</div>
+              );
             })}
           </div>
         </div>
         <div className="image">
-          <img src={shopping} alt="shopping" height="400px"/>
+          <img src={shopping} alt="shopping" height="400px" />
           {/* <br/> */}
           <h1 className="mt-5">These are the Items Available in the Store</h1>
           {/* <button
@@ -64,7 +101,7 @@ function NGO() {
             </button> */}
         </div>
       </div>
-    {/* </div> */}
+      {/* </div> */}
     </>
   );
 }

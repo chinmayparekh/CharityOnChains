@@ -57,6 +57,11 @@ export const deleteItem = async (address, name) => {
     const contractInstance = await tezos.wallet.at(
       "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
+
+    console.log("middle delete funds address",address);
+    console.log("middle delete funds name",name);
+
+
     const op = await contractInstance.methods.delete_items(address, name).send();
     await op.confirmation(1);
   } catch (err) {
@@ -69,6 +74,7 @@ export const sendFunds = async (address, cost) => {
     const contractInstance = await tezos.wallet.at(
       "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
     );
+    console.log("middle send funds");
     const op = await contractInstance.methods.send_funds(address).send({amount:cost,mutez:true});
     await op.confirmation(1);
   } catch (err) {

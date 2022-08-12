@@ -2,8 +2,9 @@ import "./Donor.css";
 import fatherhood from "../images/fatherhood.svg";
 import Progress from "reactstrap";
 
-function Donor() {
+function Donor(props) {
   var percentage = 280;
+  const data = props.location
   // const updateProgressBar()
   // {
   //    this.percentage=300;
@@ -11,6 +12,7 @@ function Donor() {
 
   return (
     <>
+    {console.log("data", data)}
       <h1 className="mt-3">
         Donate Now, <span className="purple">Save</span> The Lives of Countless
         Human Beings
@@ -19,7 +21,7 @@ function Donor() {
         <div className="mycontainer">
           <div className="halfcontainer">
             <div className="topcontainer top">
-              <h3 className="name">Red Cross</h3>
+              <h3 className="name">RED CROSS</h3>
               <p>Fundraiser Progress</p>
               <p className="money">
                 <span className="bold">₹ 84,09,766 </span>
