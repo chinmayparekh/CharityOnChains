@@ -101,9 +101,9 @@ function Home() {
                 modalTitle="Register as NGO"
                 modal1="NGO Name"
                 modal2="NGO Type"
+                modal3="Sector"
                 modal4="Registeration License"
                 modal5="Email ID"
-                model6="Sector"
                 register={async (hash) => {
                   try {
                     await registerNGO(hash);
@@ -133,7 +133,7 @@ function Home() {
                     await registerDonor(hash);
                     alert("Transaction succesful!");
                     setRegistered("donor");
-                    routeChange("donorhome");
+                    routeChange("donor");
                   } catch (err) {
                     alert(err.message);
                   }

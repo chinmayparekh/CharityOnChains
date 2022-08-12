@@ -23,7 +23,6 @@ const Layout = (props) => {
   const [field3, setField3] = useState("");
   const [field4, setField4] = useState("");
   const [field5, setField5] = useState("");
-  const [field6, setField6] = useState("");
 
   const textStyle = {
     border: "2px solid red",
@@ -38,6 +37,7 @@ const Layout = (props) => {
       textStyle.border = "2px solid green";
       toggleShow();
       addData(data, props.register);
+      // props.register(data);
     }
     //form is invalid
     else {
@@ -47,7 +47,7 @@ const Layout = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { field1, field2, field3, field4, field5, field6 };
+    const data = { field1, field2, field3, field4, field5 };
     checkForm(data);
     console.log(data);
   };
@@ -73,9 +73,9 @@ const Layout = (props) => {
             <MDBModalContent>
               <MDBModalHeader>
                 <MDBModalTitle>
-                  <div className="titlediv">
-                  <h2 className="title">{props.modalTitle}</h2>
-                  </div>
+                <div className="titlediv">
+                  <p className="title ">{props.modalTitle}</p>
+                 </div> 
                 </MDBModalTitle>
                 <MDBBtn
                   className="btn-close"
@@ -93,29 +93,37 @@ const Layout = (props) => {
                       onChange={(e) => setField1(e.target.value)}
                       required
                     />
-                    <label className="mt-1">{props.modal2} </label>
-                    <select name="ngoType" id="ngoType" onChange={(e) => setField6(e.target.value)}>
+                    <label>{props.modal2} </label>
+                    {props.id==="NGO"?
+                    <select name="ngoType" id="ngoType" onChange={(e) => setField2(e.target.value)}>
                         <option value="Private Sector Companies">Private Sector Companies</option>
                         <option value="Trust">Trust</option>
                         <option value="Registered Societies">Civic IRegistered Societies</option>
                         <option value="Academic Institutions (Private)">Academic Institutions (Private)</option>
                         <option value="Academic Institutions (Govt)">Academic Institutions (Govt)</option>
                      </select>
-                    {/* <label>{props.modal3} </label>
+                     :
+                    <input
+                      type="text"
+                      value={field2}
+                      onChange={(e) => setField2(e.target.value)}
+                      required
+                    />}
+                    <label>{props.modal3} </label>
                     <input
                       type="text"
                       value={field3}
                       onChange={(e) => setField3(e.target.value)}
                       required
-                    /> */}
-                    <label className="mt-1">{props.modal4} </label>
+                    />
+                    <label>{props.modal4} </label>
                     <input
                       type="email"
                       value={field4}
                       onChange={(e) => setField4(e.target.value)}
                       required
                     />
-                    <label className="mt-1">{props.modal5} </label>
+                    <label>{props.modal5} </label>
                     <input
                       type="text"
                       value={field5}
@@ -123,17 +131,6 @@ const Layout = (props) => {
                       required
                       default=""
                     />
-                    <label className="mt-1">{props.modal6} </label>
-                    <select name="sector" id="sector" onChange={(e) => setField6(e.target.value)}>
-                        <option value="Agriculture">Agriculture</option>
-                        <option value="Children">Children</option>
-                        <option value="Civic">Civic Issues</option>
-                        <option value="Disaster Management">Disaster Management</option>
-                        <option value="Education & Literacy">Education & Literacy</option>
-                        <option value="Environmental">Environmental</option>
-                        <option value="Human Rights">Human Rights</option>
-                        <option value="Women's Empowerement">Women's Empowerement</option>
-                     </select>
                   </form>
                 </div>
               </MDBModalBody>
