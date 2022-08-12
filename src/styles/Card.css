@@ -114,31 +114,31 @@
     }
 }
 
-.border{
-    border:solid;
+.border {
+    border: solid;
 }
 
-.aboutbiggest{
-    display:flex;
+.aboutbiggest {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.topCard{
-    background-color:#1f2432;
-    position:relative;
-    top:100px;
+.topCard {
+    background-color: #1f2432;
+    position: relative;
+    top: 100px;
 }
 
-.newhr{
-    position:relative;
-    top:-50px;
-    left:420px;
-    width:32%;
+.newhr {
+    position: relative;
+    top: -50px;
+    left: 420px;
+    width: 32%;
 }
 
 .white {
     font-family: 'Roboto', sans-serif;
-    color:white;
+    color: white;
 }

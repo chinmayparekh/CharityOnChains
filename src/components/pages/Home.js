@@ -128,7 +128,7 @@ function Home() {
                       await registerDonor(hash);
                       alert("Transaction succesful!");
                       setRegistered("donor");
-                      routeChange("donor");
+                      routeChange("donorhome");
                     } catch (err) {
                       alert(err.message);
                     }

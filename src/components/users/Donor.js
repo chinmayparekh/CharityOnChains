@@ -1,27 +1,19 @@
 import "./Donor.css";
-import {useState} from 'react';
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import {sendFunds} from "../../utils/operation"
+import { sendFunds } from "../../utils/operation";
 
 function Donor(props) {
-  const [amount,setAmount]=useState(0);
+  const [amount, setAmount] = useState(0);
   const BuyItem = async (price, address, name) => {
-    console.log("beginning");
     await sendFunds(address, price);
-    console.log("end of func");
-  }
+  };
   var percentage = 280;
-  console.log("props", props);
-  // const data = props;
-  // const updateProgressBar()
-  // {
-  //    this.percentage=300;
-  // }
+
   const location = useLocation();
   const data = location.state?.data;
   return (
     <>
-      {console.log("props", props)}
       <div className="biggest">
         <h1 className="mt-3">
           Donate Now, <span className="purple">Save</span> The Lives of
@@ -31,7 +23,7 @@ function Donor(props) {
           <div className="mycontainer">
             <div className="halfcontainer glassy">
               <div className="topcontainer top">
-                <h3 className="name">{data ? data.title : "Go to"}</h3>
+                <h3 className="name">{data ? data.title : ""}</h3>
                 {/* <p>{data ? data.address : "Go to"}</p> */}
                 <p>Fundraiser Progress</p>
                 <p className="money">
@@ -52,32 +44,51 @@ function Donor(props) {
                 <div className="buttons">
                   <button
                     className="amount m-2"
-                    onClick={()=> setAmount(50000000)}
+                    onClick={() => setAmount(50000000)}
                   >
                     &#42793; 50
                   </button>
-                  <button className="amount m-2" id="b10000" onClick={()=> setAmount(100000000)}>
+                  <button
+                    className="amount m-2"
+                    id="b10000"
+                    onClick={() => setAmount(100000000)}
+                  >
                     &#42793; 100
                   </button>
-                  <button className="amount m-2" id="b15000" onClick={()=> setAmount(150000000)}>
+                  <button
+                    className="amount m-2"
+                    id="b15000"
+                    onClick={() => setAmount(150000000)}
+                  >
                     &#42793; 150
                   </button>
-                  <input type="text" className="amount m-2" id="other" placeholder="Enter Amount" onChange={event=>setAmount(event.target.value*1e6)}></input>
+                  <input
+                    type="text"
+                    className="amount m-2"
+                    id="other"
+                    placeholder="Enter Amount"
+                    onChange={(event) => setAmount(event.target.value * 1e6)}
+                  ></input>
                 </div>
-                <button className="donate amount mt-4"
-                onClick={() => {
-                  console.log(props);
-                  console.log(amount);
-                  if(amount!==0){
-                    BuyItem(amount, data ? data.address : "Go to", props.name);
-                    console.log("button clicked");
-                  }
-                  else{
-                    alert("Please enter valid amount!");
-                  }
-                }}
-                  >Donate Now</button>
-                  <a className="mybutton outlink mb-2" href="https://jakartanet.tzkt.io/KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv/operations/" target="_blank">View All Transactions</a>
+                <button
+                  className="donate amount mt-4"
+                  onClick={() => {
+                    if (amount !== 0) {
+                      BuyItem(amount, data ? data.address : "", props.name);
+                    } else {
+                      alert("Please enter valid amount!");
+                    }
+                  }}
+                >
+                  Donate Now
+                </button>
+                <a
+                  className="mybutton outlink mb-2"
+                  href="https://jakartanet.tzkt.io/KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv/operations/"
+                  target="_blank"
+                >
+                  View All Transactions
+                </a>
 
                 <div className="socials mt-2">
                   {/* <span className="socialText">Share</span> */}
@@ -109,9 +120,6 @@ function Donor(props) {
                 </div>
               </div>
             </div>
-            {/* <div className="halfcontainer">
-            <img src={fatherhood} alt="change" className="image" />
-          </div> */}
           </div>
         </div>
       </div>

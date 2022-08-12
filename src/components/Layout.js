@@ -33,7 +33,6 @@ const Layout = (props) => {
   const checkForm = (data) => {
     //form is valid
     if (data.field1 !== "" && data.field2 !== "" && data.field3 !== "") {
-      console.log("Valid");
       textStyle.border = "2px solid green";
       toggleShow();
       // addData(data, props.register);
@@ -41,7 +40,6 @@ const Layout = (props) => {
     }
     //form is invalid
     else {
-      console.log("Invalid");
       hide.display = "inline";
     }
   };
@@ -49,7 +47,6 @@ const Layout = (props) => {
     e.preventDefault();
     const data = { field1, field2, field3, field4, field5 };
     checkForm(data);
-    console.log(data);
   };
   const imageHeight = {
     height: "200px",

@@ -18,9 +18,7 @@ function DonorCard(props) {
       </div>
       <div className="cardFooter">
         <Link to={{ pathname: "/donor" }} state={{ data: data }}>
-          <button className="buy m-4">
-          Donate Now
-          </button>
+          <button className="buy m-4">Donate Now</button>
         </Link>
       </div>
     </div>

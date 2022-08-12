@@ -6,7 +6,6 @@ const ipfs = new IPFS({
 });
 
 export function addData(data, register) {
-  console.log("adding data", data);
   ipfs.addJSON(data).then((result) => {
     register(result);
   });

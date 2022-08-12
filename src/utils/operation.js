@@ -4,7 +4,7 @@ import { tezos } from "./tezos";
 export const registerDonor = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
     const op = await contractInstance.methods
       .register_donor(
@@ -25,7 +25,7 @@ export const registerDonor = async (obj) => {
 export const registerNGO = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
     const op = await contractInstance.methods
       .register_ngo(obj.field1, obj.field2, obj.field3, obj.field4, obj.field5)
@@ -39,7 +39,7 @@ export const registerNGO = async (obj) => {
 export const registerStore = async (obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
     const op = await contractInstance.methods
       .register_store(
@@ -59,14 +59,13 @@ export const registerStore = async (obj) => {
 export const addItems = async (item_obj) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
     const op = await contractInstance.methods
       .add_items(item_obj.name, item_obj.price, item_obj.valid)
       .send();
     await op.confirmation(1);
   } catch (err) {
-    console.log(err);
     throw err;
   }
 };
@@ -74,11 +73,8 @@ export const addItems = async (item_obj) => {
 export const deleteItem = async (name, address) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
-
-    console.log("middle delete funds address", address);
-    console.log("middle delete funds name", name);
 
     const op = await contractInstance.methods
       .delete_items(name, address)
@@ -92,9 +88,8 @@ export const deleteItem = async (name, address) => {
 export const sendFunds = async (address, cost) => {
   try {
     const contractInstance = await tezos.wallet.at(
-      "KT1UEJZZ1Dc3YmBcRW3XvmPJeUS3RBEgjPKs"
+      "KT1Fnv6PCHvYBTVBr78k9sozFMBgoxi6y2dv"
     );
-    console.log("middle send funds");
     const op = await contractInstance.methods
       .send_funds(address)
       .send({ amount: cost, mutez: true });

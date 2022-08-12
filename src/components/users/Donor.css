@@ -116,12 +116,12 @@ p {
    justify-content: center;
 }
 
-#other{
+#other {
    background-color: white;
    transition: 0.7s;
 }
 
-#other:hover{
+#other:hover {
    background-color: #1f2432;
    color: white;
    transition: 0.7s;
@@ -169,8 +169,8 @@ p {
 
 }
 
-.outlink{
-   position:relative;
-   top:10px;
+.outlink {
+   position: relative;
+   top: 10px;
    text-decoration: none;
 }

@@ -1,13 +1,13 @@
-import {useState} from "react";
+import { useState } from "react";
 import shopping from "../images/shopping.svg";
 import LoadNGOForDonor from "./LoadNGOforDonor";
 import "./Store.css";
 import fetchDetails from "./fetchDetails";
 
 function DonorHome() {
-  const [details,setDetails]=useState(null);
+  const [details, setDetails] = useState(null);
 
-  fetchDetails("donors").then((response)=>setDetails(response))
+  fetchDetails("donors").then((response) => setDetails(response));
   return (
     <>
       <br />

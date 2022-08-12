@@ -41,17 +41,17 @@
    min-height: 20px;
    min-width: 100px;
    transition: 0.7s;
-   position:relative;
-   left:50px;
+   position: relative;
+   left: 50px;
 }
 
 .mybuttonnew:hover {
    background-color: #00dae4;
-   color:black;
+   color: black;
    transition: 0.7s;
 }
 
-.please{
-   display:flex;
-   position:relative;
+.please {
+   display: flex;
+   position: relative;
 }

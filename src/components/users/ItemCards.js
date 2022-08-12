@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, CardBody, CardHeader } from "reactstrap";
-import "./Store.css"
+import "./Store.css";
 function ItemCards(props) {
   return (
     <div>
-      <Card className="text-center display-cards" >
+      <Card className="text-center display-cards">
         <CardHeader color="dark">{props.name}</CardHeader>
         <CardBody>
           <ul>

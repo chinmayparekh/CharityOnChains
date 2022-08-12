@@ -2,19 +2,17 @@ import React from "react";
 import name1 from "../images/chinmay.jpeg";
 import name2 from "../images/sumanth.jpeg";
 import name3 from "../images/kritin.jpeg";
-import name4 from "../images/chinthan.jpg"
+import name4 from "../images/chinthan.jpg";
 import "../../styles/Card.css";
 
 const Page2 = (props) => {
-  const cardBackground = {
-    backgroundColor: "#D9ECFFB2",
-  };
-
   return (
     <>
       <div className="banner aboutbiggest">
         <div className="topCard">
-          <h1 className="headingText white mb-5">Meet Our <span className="cyan">Team</span></h1>
+          <h1 className="headingText white mb-5">
+            Meet Our <span className="cyan">Team</span>
+          </h1>
           <div className="hr newhr"></div>
         </div>
         <div className="container">
@@ -36,7 +34,7 @@ const Page2 = (props) => {
               <p className="names white">{props.name4}</p>
             </div>
           </div>
-      </div>
+        </div>
       </div>
     </>
   );

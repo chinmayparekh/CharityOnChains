@@ -37,8 +37,6 @@ const Navbar = () => {
     setAccount("");
     setUserDD(false);
     setBalance(0.0);
-    const storage = await fetchStorage();
-    console.log(storage);
     getAmt(account);
     routeChange("/");
   };
@@ -57,7 +55,6 @@ const Navbar = () => {
       !(account in storage["ngos"]) &&
       !(account in storage["cooperative_stores"])
     ) {
-      console.log(" ");
     } else if (account in storage["donors"]) {
       //function to display donor page
       routeChange("donorhome");
@@ -113,7 +110,12 @@ const Navbar = () => {
                 </ListInlineItem>
               </List>
             )}
-            <button className="mybuttonnew pullright" onClick={()=> routeChange("/about")}>About us</button>
+            <button
+              className="mybuttonnew pullright"
+              onClick={() => routeChange("/about")}
+            >
+              About us
+            </button>
           </span>
         </div>
       </nav>

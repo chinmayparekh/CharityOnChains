@@ -4,7 +4,7 @@ import { addItems } from "../../utils/operation";
 import shopping from "../images/shopping.svg";
 import LoadItem from "./LoadItem";
 import "./Store.css";
-import {fetchDetails} from "./fetchDetails";
+import { fetchDetails } from "./fetchDetails";
 
 function Store() {
   const [state, setState] = useState(false);
@@ -12,10 +12,10 @@ function Store() {
   const closeModal = () => setState(false);
 
   const [name, setName] = useState("");
-  const [details,setDetails]=useState(null);
+  const [details, setDetails] = useState(null);
 
-  fetchDetails("cooperative_stores").then((response)=>setDetails(response))
-  
+  fetchDetails("cooperative_stores").then((response) => setDetails(response));
+
   const [price, setPrice] = useState(0);
   const [valid, setValid] = useState(1);
   const textStyle = {
@@ -27,13 +27,11 @@ function Store() {
   const checkForm = (items) => {
     //form is valid
     if (items.name !== "" && items.price > 0) {
-      console.log("Valid");
       textStyle.border = "2px solid green";
       return true;
     }
     //form is invalid
     else {
-      console.log("Invalid");
       hide.display = "inline";
       return false;
     }

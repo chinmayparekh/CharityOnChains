@@ -5,12 +5,8 @@ import { sendFunds, deleteItem } from "../../utils/operation";
 
 function NgoCard(props) {
   const BuyItem = async (price, address, name) => {
-    console.log("beginning");
     await sendFunds(address, price);
-    console.log("end of func");
-
     await deleteItem(name, address);
-    console.log("end of delete func");
   };
   return (
     <div className="mycard m-4">
@@ -24,9 +20,7 @@ function NgoCard(props) {
         <button
           className="buy m-4"
           onClick={() => {
-            console.log(props);
             BuyItem(props.price, props.address, props.name);
-            console.log("button clicked");
           }}
         >
           Buy Now
@@ -34,19 +28,6 @@ function NgoCard(props) {
       </div>
     </div>
   );
-
-  // <div>
-  // <Card className="text-center">
-  //   <CardHeader color="dark">
-  //     {props.name}
-  //   </CardHeader>
-  //   <CardBody>
-  //     <ul>
-  // 			<li>Price: {props.price}</li>
-  // 		</ul>
-  //   </CardBody>
-  // </Card>
-  // </div>)
 }
 
 export default NgoCard;
